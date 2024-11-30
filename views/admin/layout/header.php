@@ -434,6 +434,15 @@
                 </li>
               </ul>
             </li>
+            <li class="nav-item">
+              <a href="?act=coupon" class="nav-link">
+              <i class="nav-icon fa-solid fa-ticket"></i>
+                <p>
+                  Mã giảm giá
+                  <span class="badge badge-info right"></span>
+                </p>
+              </a>
+            </li>
          
             <li class="nav-header">QUẢN LÝ</li>
             <li class="nav-item">
