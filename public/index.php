@@ -73,6 +73,7 @@ switch ($action) {
         break;
     case 'user-edit':
         $userAdmin->updateUser();
+        break;
     case 'setting':
         $setting->index();
         break;

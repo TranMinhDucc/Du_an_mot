@@ -19,8 +19,10 @@ class User extends connect {
 
         if ($user && password_verify($password, $user['password'])) {
             return $user; 
+        }else{
+            return false;
         }
-        return false;
+        
     }
 
     public function updateUser($name, $image,$address, $email, $phone, $gender){

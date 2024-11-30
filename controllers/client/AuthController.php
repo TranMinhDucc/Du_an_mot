@@ -88,7 +88,7 @@ class authController extends User
                 $errors['email'] = 'Vui lòng nhập email';
             }
             if (empty($_POST['password']) || strlen($_POST['password']) < 6) {
-                $errors['password'] = 'Vui lòng nhập mật khẩu';
+                $errors['password'] = 'Vui lòng nhập mật khẩu & yêu cầu lớn hơn 6 kí tự';
             }
 
             $_SESSION['errors'] = $errors;
@@ -99,13 +99,14 @@ class authController extends User
             }
 
             $login = $this->signin($_POST['email'], $_POST['password']);
+            // var_dump($_SESSION); die();
             if ($login) {
                 $_SESSION['user'] = $login; // Lưu thông tin người dùng đăng nhập vào session
                 $_SESSION['success'] = 'Đăng nhập thành công';
                 header('Location: ?act=client');
                 exit();
             } else {
-                $_SESSION['error'] = 'Đăng nhập không thành công. Vui lòng thử lại';
+                $_SESSION['error'] = 'Đăng nhập thất bại. Vui lòng thử lại';
                 header('Location: ' . $_SERVER['HTTP_REFERER']);
                 exit();
             }

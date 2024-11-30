@@ -11,6 +11,9 @@
                     <h2 class="sig-in">Đăng Nhập</h2>
                     <p class="sig-in">Đăng nhập để tiếp tục mua sắm</p>
                     <form action="?act=login" method="POST">
+                    <?php if (isset($_SESSION['errors']['notification'])) : ?>
+                            <p class="text-danger"><?= $_SESSION['errors']['notification'] ?></p>
+                        <?php endif; ?>
                         <label class="label_login" for="phone">Email *</label>
                         <div class="phone-input">
                             <input type="tel" name="email" placeholder="Vui lòng nhập email" >

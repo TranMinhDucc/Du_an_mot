@@ -35,7 +35,7 @@
                                 <i class="fa-solid fa-location-dot"></i>
                                 <span class="capitalize">addresses</span>
                             </a>
-                            <a href="">
+                            <a href="?act=logout">
                                 <i class="fa-solid fa-right-from-bracket"></i>
                                 <span class="capitalize">logout</span>
                             </a>
