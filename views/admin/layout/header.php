@@ -80,8 +80,79 @@
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="?act=client" class="nav-link">Home</a>
                 </li>
-                <li class="nav-item d-none d-sm-inline-block">
-                    <a href="#" class="nav-link">Contact</a>
+              </ul>
+              <!-- nav Liên Hệ -->
+<li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-table"></i>
+                <p>
+                  Liên Hệ
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="index.php?act=lienhe" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>List</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+<!-- END -->
+            </li>
+         
+            <li class="nav-header">QUẢN LÝ</li>
+            <li class="nav-item">
+              <a href="admin/assets/pages/calendar.html" class="nav-link">
+                <i class="nav-icon fa-solid fa-user"></i>
+                <p>
+                  Thành viên
+                  <span class="badge badge-info right"></span>
+                </p>
+              </a>
+            </li>
+            <li class="nav-header">CÀI ĐẶT HỆ THỐNG</li>
+            <li class="nav-item">
+              <a href="?act=setting" class="nav-link">
+              <i class="nav-icon fa-solid fa-gear"></i>
+                <p>
+                  Cài đặt
+                  <span class="badge badge-info right"></span>
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="admin/assets/pages/gallery.html" class="nav-link">
+                <i class="nav-icon far fa-image"></i>
+                <p>
+                  Gallery
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="admin/assets/pages/kanban.html" class="nav-link">
+                <i class="nav-icon fas fa-columns"></i>
+                <p>
+                  Kanban Board
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon far fa-envelope"></i>
+                <p>
+                  Mailbox
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="admin/assets/pages/mailbox/mailbox.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Inbox</p>
+                  </a>
+
                 </li>
             </ul>
 

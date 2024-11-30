@@ -107,6 +107,7 @@
                         <a href="#!" class="a_none capitalize">Offers</a>
                         <a href="#!" class="a_none capitalize">Daily Deals</a>
                         <a href="#!" class="a_none capitalize">Flash Sale</a>
+                        <a href="?act=userLienHe" class="a_none capitalize">Liên Hệ</a>
                     </nav>
                 </div>
                 <div class="item_right">

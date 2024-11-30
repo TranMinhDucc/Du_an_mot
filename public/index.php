@@ -2,6 +2,7 @@
 session_start();
 require_once '../controllers/admin/CategoryController.php';
 require_once '../controllers/admin/ProductController.php';
+require_once '../controllers/admin/AdminLienHeController.php';
 require_once '../controllers/admin/UserController.php';
 require_once '../controllers/admin/DashboardController.php';
 require_once '../controllers/admin/SettingController.php';
@@ -10,6 +11,7 @@ require_once '../controllers/client/HomeController.php';
 require_once '../controllers/client/AuthController.php';
 require_once '../controllers/client/ProfileController.php';
 require_once '../controllers/client/CartController.php';
+require_once '../controllers/client/LienHeController.php';
 $action = isset($_GET['act']) ? $_GET['act'] : 'client';
 $categoryAdmin = new CategoryController();
 $userAdmin = new UserController();
@@ -18,9 +20,11 @@ $profile = new ProfileController();
 $dashboard = new DashboardController();
 $setting = new SettingController();
 $cart = new CartController();
+$lienhe= new AdminLienHeController();
 //========================== CLIENT
 $auth = new authController();
 $home = new HomeController();
+$lienHeController = new LienHeController();
 switch ($action) {
     case 'admin':
         $dashboard->index();
@@ -120,5 +124,31 @@ switch ($action) {
         break;
     case 'checkout';
         include '../views/client/checkout/checkout.php.php';
+        break;
+        case 'userLienHe':
+            $lienHeController->formLienHe();
+         break;
+    case 'postLienHe':
+            $lienHeController->postLienHe();
+        break;
+     case 'successLienHe':
+            $lienHeController->lienHeSuccess();
+        break;
+    
+    case 'lienhe':
+            $lienhe->danhSachLienHe();
+        break;
+    
+    case 'chitietlienhe':
+            $chitietlienhe->chiTietLienHe();
+         break;
+    case 'sualienhe':
+             $sualienhe->postEditLienHe();
+        break;
+    case 'xoalienhe':
+            $xoalienhe->deleteLienHe();
+        break;
+    case 'formsualienhe':
+            $formsualienhe->formEditLienHe();
         break;
 }
