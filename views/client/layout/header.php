@@ -93,23 +93,22 @@
                             <span class="arrow"><i class="fa-solid fa-chevron-down"></i></span>
                         </button>
                         <ul class="list_nav" id="listNav">
-                        <?php foreach ($categories as $cate): ?>
+                            <?php foreach ($categories as $cate): ?>
+
                             <li class="category_item">
                                 <button class="category_menu">
                                     <span class="capitalize"> <?= $cate['name'] ?></span>
                                     <!-- <i class="fa-solid fa-chevron-right"></i> -->
                                 </button>
                             </li>
-
                             <?php endforeach; ?>
-
                         </ul>
                     </div>
                     <nav class="nav_items">
                         <a href="?act=client" class="a_none capitalize">Trang chủ</a>
-                        <a href="#!" class="a_none capitalize">Offers</a>
+                        <a href="?act=products" class="a_none capitalize">Sản Phẩm</a>
                         <a href="#!" class="a_none capitalize">Daily Deals</a>
-                        <a href="#!" class="a_none capitalize">Flash Sale</a>
+                        <a href="?act=userLienHe" class="a_none capitalize">Liên Hệ</a>
                     </nav>
                 </div>
                 <div class="item_right">

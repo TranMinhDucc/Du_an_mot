@@ -6,11 +6,11 @@
                 <div class="profile_right">
                     <div class="card">
                         <div class="information_prf text-center">
-                            <a href="">
-                                <img src="<?=  'assets/client/images/' ?>avatar/avatar.jpg" alt="" class="image text-center">
-                            </a>
+                        <a href="">
+                            <img src="../public/images/users/<?= isset($_SESSION['user']['avatar']) && $_SESSION['user']['avatar'] !== '' ? $_SESSION['user']['avatar'] : 'user.jpg' ?>" alt="" class="image text-center">
+                        </a>
                             <h3 class="capitalize"><?=$_SESSION['user']['name']?></h3>
-                            <p class="">+8801838288389</p>
+                            <p class=""><?= isset($_SESSION['user']['phone']) && $_SESSION['user']['phone'] !== '' ? $_SESSION['user']['phone'] : 'Bạn chưa cập nhật số diện thoại' ?></p>
                         </div>
                         <nav class="list_nav_profile">
                             <a href="?act=dashboard&id=1" class="active">

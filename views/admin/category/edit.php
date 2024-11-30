@@ -18,12 +18,13 @@
   </section>
   <!-- Main content -->
   <section class="content">
-    <form action="index.php?act=category-edit&id=<?=$getCategory['id']?>" method="post" enctype="multipart/form-data">
+    <form action="index.php?act=category-edit&id=<?= $getCategory['id'] ?>" method="post"
+      enctype="multipart/form-data">
       <div class="row">
         <div class="col-md-12">
           <div class="card card-primary">
             <div class="card-header">
-              <h3 class="card-title">Danh mục <?=$getCategory['name']?></h3>
+              <h3 class="card-title">Danh mục <?= $getCategory['name'] ?></h3>
               <div class="card-tools">
                 <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                   <i class="fas fa-minus"></i>
@@ -31,9 +32,11 @@
               </div>
             </div>
             <div class="card-body">
+
               <div class="form-group">
-                <label for="inputName">Tên danh mục</label>
-                <input type="text" name="name" id="inputName" class="form-control" placeholder="Nhập tên danh mục" value="<?=$getCategory['name']?>">
+                <label for="inputName">Họ và tên</label>
+                <input type="text" name="name" id="inputName" class="form-control"
+                  placeholder="Nhập tên danh mục" value="<?= $getCategory['name'] ?>">
               </div>
               <?php if (isset($_SESSION['errors']['name'])) : ?>
                 <p class="text-danger"><?= $_SESSION['errors']['name'] ?></p>
@@ -41,8 +44,11 @@
               <div class="form-group">
                 <label for="inputStatus">Trạng thái</label>
                 <select id="inputStatus" name="status" class="form-control custom-select">
-                  <option value="active" <?=$getCategory['status'] == 'active' ? 'selected' : ''?>>Hiện</option>
-                  <option value="hidden" <?=$getCategory['status'] == 'hidden' ? 'selected' : ''?>>Ẩn</option>
+                  <option value="active" <?= $getCategory['status'] == 'active' ? 'selected' : '' ?>>
+                    Hiện</option>
+                  <option value="hidden" <?= $getCategory['status'] == 'hidden' ? 'selected' : '' ?>>
+                    Ẩn
+                  </option>
                 </select>
               </div>
               <?php if (isset($_SESSION['errors']['status'])) : ?>
@@ -50,7 +56,8 @@
               <?php endif; ?>
               <div class="form-group">
                 <label for="inputDescription">Mô tả</label>
-                <textarea name="description" id="inputDescription" class="form-control" rows="4" placeholder="Nhập mô tả danh mục"><?=$getCategory['description']?></textarea>
+                <textarea name="description" id="inputDescription" class="form-control" rows="4"
+                  placeholder="Nhập mô tả danh mục"><?= $getCategory['description'] ?></textarea>
               </div>
               <?php if (isset($_SESSION['errors']['description'])) : ?>
                 <p class="text-danger"><?= $_SESSION['errors']['description'] ?></p>
@@ -69,15 +76,15 @@
           <!-- /.card -->
         </div>
         <div class=" col-md-6">
-                <!-- /.card -->
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-12">
-              <a href="?act=category" class="btn btn-secondary">Trở về</a>
-              <input type="submit" name="updateCategory" value="Cập nhật" class="btn btn-success float-right">
-            </div>
-          </div>
+          <!-- /.card -->
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <a href="?act=category" class="btn btn-secondary">Trở về</a>
+          <input type="submit" name="updateCategory" value="Cập nhật" class="btn btn-success float-right">
+        </div>
+      </div>
     </form>
 
   </section>

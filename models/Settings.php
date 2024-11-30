@@ -14,7 +14,7 @@ class Settings extends Connect
 
     public function updateSetting($id, $content)
     {
-        echo $sql = "UPDATE settings SET content = :content WHERE id = :id";
+        $sql = "UPDATE settings SET content = :content WHERE id = :id";
         $stmt = $this->connect()->prepare($sql);
         $stmt->bindParam(':content', $content);
         $stmt->bindParam(':id', $id);

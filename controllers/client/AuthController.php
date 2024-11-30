@@ -15,12 +15,17 @@ class authController extends User
     {
         $categories = $this->categories->listCategory();
         $GLOBALS['settings'] = $this->setting->getAllSetting();
+        $emailUser = isset($_POST['email']) ? $_POST['email'] : '';
+        $checkEmail = $this->checkEmail($emailUser);
         if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['register'])) {
             $errors = [];
             if (empty($_POST['name'])) {
                 $errors['name'] = 'Vui lòng nhập tên';
             }
-            if (empty($_POST['email'])) {
+            if($checkEmail){
+                $errors['email'] = 'Email đã tồn tại. Vui lòng nhập địa chỉ email khác';
+            }
+            if (empty($_POST['email']) || $_POST['email'] == '') {
                 $errors['email'] = 'Vui lòng nhập email';
             }
             if (empty($_POST['password']) || strlen($_POST['password']) < 6) {

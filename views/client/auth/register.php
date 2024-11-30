@@ -1,5 +1,5 @@
-<?php 
-include '../views/client/layout/header.php'; 
+<?php
+include '../views/client/layout/header.php';
 ?>
 
 <body>
@@ -22,7 +22,7 @@ include '../views/client/layout/header.php';
                             <label for="email">Email *</label>
                             <!-- <a href="#" class="use-email">Use Email Instead</a> -->
                         </div>
-                        <input type="text" class="input" id="email" name="email" placeholder="Vui lòng nhập email" >
+                        <input type="text" class="input" id="email" name="email" placeholder="Vui lòng nhập email">
                         <?php if (isset($_SESSION['errors']['email'])) : ?>
                             <p class="text-danger"><?= $_SESSION['errors']['email'] ?></p>
                         <?php endif; ?>
@@ -32,7 +32,7 @@ include '../views/client/layout/header.php';
                             <p class="text-danger"><?= $_SESSION['errors']['password'] ?></p>
                         <?php endif; ?>
                         <label for="confirm-password">Nhập lại mật khẩu *</label>
-                        <input type="password" class="input" placeholder="Vui lòng nhập lại mật khẩu" name="confirm_password" >
+                        <input type="password" class="input" placeholder="Vui lòng nhập lại mật khẩu" name="confirm_password">
                         <?php if (isset($_SESSION['errors']['confirm_password'])) : ?>
                             <p class="text-danger"><?= $_SESSION['errors']['confirm_password'] ?></p>
                         <?php endif; ?>
@@ -44,6 +44,6 @@ include '../views/client/layout/header.php';
         </div>
     </div>
 </body>
-<?php include '../views/client/layout/footer.php'; 
-    unset($_SESSION['errors']);
+<?php include '../views/client/layout/footer.php';
+unset($_SESSION['errors']);
 ?>

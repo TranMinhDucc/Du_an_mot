@@ -8,10 +8,9 @@
     <div class="product-page">
         <div class="page">
             <div class="product-images">
-                <img src="./images/product/<?= $productDetail['product_image'] ?>" alt="Main Product" class="main-image" />
-
+                <img src="./images/product/<?= $productDetail['product_image'] ?>" alt="Main Product"
+                    class="main-image" />
             </div>
-
             <!-- Product Info -->
             <form action="?act=addToCart-byNow" method="post">
                 <div class="product-info">
@@ -52,7 +51,6 @@
                         <!-- <div class="tags">
                             <label for=""> Total amount:</label>
                             <span class="total_price sale-price-variants">1200</span>
-
                         </div> -->
                         <div class="share">
                             <label for="">Share:</label>

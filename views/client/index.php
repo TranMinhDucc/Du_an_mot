@@ -147,8 +147,7 @@
                 <div class="flex_popular">
                     <div class="box_popular">
                         <div class="item_img">
-                            <img src="<?= 'client/assets/images/' ?>home/prd_01.jpg" alt=""
-                                class="img_home_prd image text-center">
+                            <img src="<?= $pro['product_image'] ?>" alt="" class="img_home_prd image text-center">
                             <button class="heart-button"><i class="fa-regular fa-heart"></i></button>
                             <button class="bag-button"><i class="fa-solid fa-bag-shopping"></i>Add</button>
                         </div>

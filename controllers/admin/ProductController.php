@@ -226,8 +226,8 @@ class  ProductController extends Product
             exit();
         }
     }
-  
-  
+
+
     public function deleteProduct()
     {
         try {
@@ -241,6 +241,4 @@ class  ProductController extends Product
             exit();
         }
     }
-
-    
 }
