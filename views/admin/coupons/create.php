@@ -93,11 +93,12 @@
 
                             <!-- Loại phiếu giảm giá -->
                             <div class="form-group">
-                                <label for="type">Loại phiếu giảm giá</label>
+                                <label for="type">Loại phiếu giảm giá </label> 
                                 <!-- <div class="form-check">
                                     <input class="form-check-input" type="radio" name="type" value="Free Shipping" id="type_free_shipping" checked>
                                     <label class="form-check-label" for="type_free_shipping">Miễn phí vận chuyển</label>
                                 </div> -->
+                                <!-- ccc -->
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="type" value="Percentage" id="type_percentage">
                                     <label class="form-check-label" for="type_percentage">Giảm phần trăm</label>
