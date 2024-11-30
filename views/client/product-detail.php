@@ -12,8 +12,8 @@
                     class="main-image" />
             </div>
             <!-- Product Info -->
-            <form action="?act=addToCart-byNow" method="post">
-                <div class="product-info">
+            <form action="?act=addToCart-byNow" class="product-info" method="post">
+                <div>
                     <input type="hidden" name="product_id" value="<?= $productDetail['product_id'] ?>">
                     <div class="info">
                         <div class="navigation">
@@ -26,7 +26,8 @@
                             <span
                                 class="old-price price"><?= number_format($productDetail['product_price'] * 1000, 0, ',', '.')  ?>đ</span>
                             <span
-                                class="new-price sale-price-variants"><?= number_format($productDetail['product_sale_price'], 0, ',', '.') ?></span><span class="new-price">đ</span>
+                                class="new-price sale-price-variants"><?= number_format($productDetail['product_sale_price'], 0, ',', '.') ?></span><span
+                                class="new-price">đ</span>
                             <input type="hidden" name="variant_id" id="variant_id">
                             <span class="per-kilo">/Per Kilo</span>
                         </div>
@@ -35,7 +36,8 @@
                             <label for="">Weight: </label>
                             <?php foreach ($productDetail['variants'] as $variant) : ?>
                                 <div class="variants">
-                                    <button class="variant btn-weight" data-weight="<?= $variant['product_variant_weight'] ?>"><?= $variant['product_variant_weight'] ?></button>
+                                    <button class="variant btn-weight"
+                                        data-weight="<?= $variant['product_variant_weight'] ?>"><?= $variant['product_variant_weight'] ?></button>
                                 </div>
                             <?php endforeach ?>
                         </div>
