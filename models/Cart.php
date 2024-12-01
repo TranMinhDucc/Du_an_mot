@@ -1,5 +1,5 @@
 <?php
-    require_once '../connect/connect.php';
+require_once '../connect/connect.php';
 
 class Cart extends connect
 {
@@ -8,10 +8,14 @@ class Cart extends connect
         $sql = 'SELECT 
                 cart_items.cart_id as cart_id,
                 cart_items.quantity as quantity,
+                cart_items.product_id as cart_product_id,
+                cart_items.variant_id  as cart_variant_id,
+                cart_items.user_id  as cart_user_id ,
                 products.name AS product_name,
                 products.slug AS product_slug,
                 products.images AS product_image,
                 products_variants.price AS variant_price, 
+                
                 products_variants.sale_price AS variant_sale_price,
                 variant_weights.weight AS variant_weight_name
         FROM cart_items
@@ -34,35 +38,40 @@ class Cart extends connect
         return $stmt->execute([$user_id, $product_id, $variant_id, $quantity]);
     }
 
-    public function checkCart() {
+    public function checkCart()
+    {
         $sql = 'SELECT * FROM cart_items WHERE user_id = ? AND product_id = ? AND variant_id = ?';
         $stmt = $this->connect()->prepare($sql);
         $stmt->execute([$_SESSION['user']['id'], $_POST['product_id'], $_POST['variant_id']]);
-        return $stmt -> fetch();
+        return $stmt->fetch();
     }
 
-    public function updateCart($user_id, $product_id, $variant_id, $quantity) {
+    public function updateCart($user_id, $product_id, $variant_id, $quantity)
+    {
         $sql = 'UPDATE cart_items SET quantity = ? WHERE user_id = ? AND product_id = ? AND variant_id =?';
         $stmt = $this->connect()->prepare($sql);
         return $stmt->execute([$quantity, $user_id, $product_id, $variant_id]);
     }
-    
-    public function updateCartById($cart_id, $quantity) {
+
+    public function updateCartById($cart_id, $quantity)
+    {
         $sql = 'UPDATE cart_items SET quantity = ? WHERE cart_id = ?';
         $stmt = $this->connect()->prepare($sql);
         return $stmt->execute([$quantity, $cart_id]);
     }
 
-    public function deleteCart($cart_id) {
+    public function deleteCart($cart_id)
+    {
         $sql = 'DELETE FROM cart_items WHERE cart_id = ?';
         $stmt = $this->connect()->prepare($sql);
         return $stmt->execute([$cart_id]);
-    } 
-    
-    public function getCouponByCode($coupon_code) {
+    }
+
+    public function getCouponByCode($coupon_code)
+    {
         $sql = 'SELECT * FROM coupons WHERE coupons_code = ?';
         $stmt = $this->connect()->prepare($sql);
         $stmt->execute([$coupon_code]);
-        return $stmt -> fetch(PDO::FETCH_ASSOC);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 }

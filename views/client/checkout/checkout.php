@@ -5,18 +5,18 @@
 
 <body>
     <main>
-        <div class="container_cart">
-            <div class="center w d-flex ">
-                <a href="?act=client"><button class="btn_back_home"><i
-                            class="fa-solid fa-rotate-left back"></i></button></a>
-                <div class="title_shopping">
-                    <h4 class="capitalize">Thông tin vận chuyển</h4>
-                    <p>Kiểm tra thông tin của bạn trước khi tiếp tục
-                    </p>
+        <form action="?act=order" method="post">
+            <div class="container_cart">
+                <div class="center w d-flex ">
+                    <a href="?act=client"><button class="btn_back_home"><i
+                                class="fa-solid fa-rotate-left back"></i></button></a>
+                    <div class="title_shopping">
+                        <h4 class="capitalize">Thông tin vận chuyển</h4>
+                        <p>Kiểm tra thông tin của bạn trước khi tiếp tục
+                        </p>
+                    </div>
                 </div>
-            </div>
-            <div class="box_cart center w d-flex">
-                <form action="?act=update-cart" method="post">
+                <div class="box_cart center w d-flex">
                     <div class="cart_left">
                         <div>
                             <ul>
@@ -36,7 +36,7 @@
                                             </div>
                                             <div class="label_Cart">
                                                 <label for="">Số điện thoại:</label> <br>
-                                                <input type="text" name="hotline" value="<?= $user['phone'] ?>"
+                                                <input type="text" name="phone" value="<?= $user['phone'] ?>"
                                                     class="input_carts"> <br>
                                             </div>
                                             <div class="label_Cart">
@@ -55,69 +55,91 @@
 
                             <div class="text-right capitalize flex box_btn_carts">
                                 <a href="?act=carts" class="next_checkout back_Cart">Quay lại giỏ hàng</a>
-                                <a href="" class="next_checkout">Tiến hành thanh toán</a>
+                                <button type="submit" name="checkout" class="next_checkout">Tiến hành thanh
+                                    toán</button>
                             </div>
                         </div>
 
                     </div>
-                </form>
-                <div class="cart_rights">
-                    <div class="cart_right">
 
-                        <div>
-                            <h3>Đơn hàng của tôi</h3>
-                        </div>
-                        <ul class="list_amount">
-                            <li class="flex">
-                                <span class="capitalize">Sản phẩm</span>
-                                <span class="font-medium">Giá tiền</span>
-                            </li>
-                            <?php foreach ($carts as $cart) : ?>
-                            <li class="flex">
-                                <span class="capitalize"><?= $cart['product_name'] ?></span>
-                                <span
-                                    class="font-medium"><?= number_format($cart['variant_sale_price'] * 1000) ?></span>
-                            </li>
-                            <?php endforeach; ?>
+                    <div class="cart_rights">
+                        <div class="carts_right">
+                            <div class="cart_rightsss">
 
-                        </ul>
-                        <div class="flex">
-                            <p class="capitalize font-semibold">Tổng cộng</p>
-                            <p class="font-semibold">1000đ</p>
+                                <div>
+                                    <h3>Đơn hàng của tôi</h3>
+                                </div>
+                                <ul class="list_amount">
+                                    <li class="flex">
+                                        <span class="capitalize"> <strong>Sản phẩm</strong> </span>
+                                        <span class="font-medium"> <strong>Giá tiền</strong></span>
+                                    </li>
+                                    <?php foreach ($carts as $cart) : ?>
+                                        <li class="flex">
+                                            <span class="capitalize"><?= $cart['product_name'] ?></span>
+                                            <span
+                                                class="font-medium"><?= number_format($cart['variant_sale_price'] * 1000) ?></span>
+                                        </li>
+                                    <?php endforeach; ?>
+                                    <span class="capitalize">
+                                        <li class="flex">
+                                            <span class="capitalize">Subtotal</span>
+                                            <input type="hidden" value="<?= $_SESSION['total'] ?>">
+                                            <span
+                                                class="capitalize"><Strong><?= number_format($_SESSION['total'] * 1000) ?>đ</Strong></span>
+                                        </li>
+                                        <?php if (isset($_SESSION['coupon']) && !empty($_SESSION['coupon'])) { ?>
+                                            <li class="flex">
+                                                <input type="hidden" name="coupon_id"
+                                                    value="<?= isset($_SESSION['coupon']['coupon_id']) ?>">
+                                                <span class="capitalize">Mã giảm giá</span>
+                                                <span
+                                                    class="capitalize"><strong>-<?= isset($_SESSION['totalCoupon']) ? number_format($_SESSION['totalCoupon'] * 1000) : 0; ?>đ</strong></span>
+                                            </li>
+                                        <?php } else { ?>
+                                            <input type="hidden" name="coupon_id" value="">
+                                        <?php } ?>
+                                        <strong>Giao hàng</strong>
+                                    </span>
+                                    <li class="flex">
+
+                                        <div class="tp-order-info-list-shipping-item ">
+                                            <?php foreach ($ships as $ship): ?>
+                                                <span class="font-medium">
+
+                                                    <input type="radio" name="shipping_id"
+                                                        value="<?= $ship['shipping_id'] ?>">
+                                                    <label for="flat_rate"><?= $ship['name'] ?>:
+                                                        <span><?= number_format($ship['shipping_price'] * 1000) ?>đ</span></label><br>
+                                                </span>
+                                            <?php endforeach; ?>
+                                        </div>
+                                    </li>
+
+                                </ul>
+                                <?php if (isset($_SESSION['coupon']) && !empty($_SESSION['coupon'])): ?>
+                                    <div class="flex">
+                                        <p class="capitalize font-semibold">Tổng cộng</p>
+                                        <input type="hidden" name="amount"
+                                            value="<?= $_SESSION['total'] - $_SESSION['totalCoupon'] ?>">
+                                        <p class="font-semibold">
+                                            <?= number_format(($_SESSION['total'] - $_SESSION['totalCoupon']) * 1000) ?>
+                                        </p>
+                                    </div>
+                                <?php else: ?>
+                                    <div class="flex">
+                                        <p class="capitalize font-semibold">Tổng cộng</p>
+                                        <input type="hidden" name="amount" value="<?= $_SESSION['total'] ?>">
+                                        <p class="font-semibold"><?= number_format($_SESSION['total'] * 1000) ?></p>
+                                    </div>
+                                <?php endif; ?>
+                            </div>
                         </div>
+
+
                     </div>
-                    <div class="cart_right">
-                        <!--  -->
-                        <form action="" class="form_coupon ">
-                            <input type="text" placeholder="Nhập mã giảm giá">
-                            <button>Áp dụng</button>
-                        </form>
-                        <div>
-                            <h3>Tóm tắt đơn hàng</h3>
-                        </div>
-                        <ul class="list_amount">
-                            <li class="flex">
-                                <span class="capitalize">Tổng cộng</span>
-                                <span class="font-medium">260.000đ</span>
-                            </li>
-                            <li class="flex">
-                                <span class="capitalize">Phí vận chuyển</span>
-                                <span class="font-medium">123.00đ</span>
-                            </li>
-                            <li class="flex">
-                                <span class="capitalize">Giảm giá</span>
-                                <span class="font-medium">$1000.00đ</span>
-                            </li>
-                        </ul>
-                        <div class="flex">
-                            <p class="capitalize font-semibold">Tổng cộng</p>
-                            <p class="font-semibold">1000đ</p>
-                        </div>
-                    </div>
-
                 </div>
-            </div>
-
+        </form>
     </main>
 </body>
 <?php include '../views/client/layout/footer.php'; ?>

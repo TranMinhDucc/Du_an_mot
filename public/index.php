@@ -147,6 +147,9 @@ switch ($action) {
     case 'checkout';
         $order->index();
         break;
+    case 'order';
+        $order->checkout();
+        break;
     case 'userLienHe':
         $lienHeController->formLienHe();
         break;
