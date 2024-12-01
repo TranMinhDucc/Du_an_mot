@@ -192,7 +192,12 @@
 }
 
 /* cart_right ===================================== */
-
+.carts_right {
+  width: 356px;
+  height: 425px;
+  padding: 20px;
+  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
 .cart_right {
   width: 356px;
   height: 280px;
