@@ -57,5 +57,12 @@ class Cart extends connect
         $sql = 'DELETE FROM cart_items WHERE cart_id = ?';
         $stmt = $this->connect()->prepare($sql);
         return $stmt->execute([$cart_id]);
-    }   
+    } 
+    
+    public function getCouponByCode($coupon_code) {
+        $sql = 'SELECT * FROM coupons WHERE coupons_code = ?';
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute([$coupon_code]);
+        return $stmt -> fetch(PDO::FETCH_ASSOC);
+    }
 }
