@@ -198,3 +198,32 @@
     height: 280px;
     padding: 20px;
 }
+.box_btn_carts {
+    width: 100%;
+    justify-content: space-between;
+}
+
+.back_Cart {
+    background-color: #f7f7fc;
+    color: black;
+}
+
+.box_cart .input_carts{
+    padding: 10px;
+    font-family: "Saira Semi Condensed", sans-serif;
+    border-radius: 8px;
+    border: 1px solid #eaeaea;
+    width: 100%;
+} 
+
+.label_Cart {
+    margin-top: 10px;
+}
+
+.label_Cart textarea {
+    width: 100%;
+    padding: 10px;
+    font-family: "Saira Semi Condensed", sans-serif;
+    border-radius: 8px;
+    border: 1px solid #eaeaea;
+}

@@ -296,6 +296,14 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a href="?act=coupon" class="nav-link">
+                            <i class="nav-icon fa-solid fa-ticket"></i>
+                                <p>
+                                    Mã giảm giá
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="?act=lienhe" class="nav-link">
                                 <i class="nav-icon fa-solid fa-address-book"></i>
                                 <p>

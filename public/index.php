@@ -24,7 +24,7 @@ $profile = new ProfileController();
 $dashboard = new DashboardController();
 $setting = new SettingController();
 $cart = new CartController();
-$lienhe= new AdminLienHeController();
+$lienhe = new AdminLienHeController();
 //========================== CLIENT
 $auth = new authController();
 $home = new HomeController();
@@ -143,32 +143,32 @@ switch ($action) {
         $cart->delete();
         break;
     case 'checkout';
-        include '../views/client/checkout/checkout.php.php';
+        include '../views/client/checkout/checkout.php';
         break;
-        case 'userLienHe':
-            $lienHeController->formLienHe();
-         break;
+    case 'userLienHe':
+        $lienHeController->formLienHe();
+        break;
     case 'postLienHe':
-            $lienHeController->postLienHe();
+        $lienHeController->postLienHe();
         break;
-     case 'successLienHe':
-            $lienHeController->lienHeSuccess();
+    case 'successLienHe':
+        $lienHeController->lienHeSuccess();
         break;
-    
+
     case 'lienhe':
-            $lienhe->danhSachLienHe();
+        $lienhe->danhSachLienHe();
         break;
-    
+
     case 'chitietlienhe':
-            $chitietlienhe->chiTietLienHe();
-         break;
+        $chitietlienhe->chiTietLienHe();
+        break;
     case 'sualienhe':
-             $sualienhe->postEditLienHe();
+        $sualienhe->postEditLienHe();
         break;
     case 'xoalienhe':
-            $xoalienhe->deleteLienHe();
+        $xoalienhe->deleteLienHe();
         break;
     case 'formsualienhe':
-            $formsualienhe->formEditLienHe();
+        $formsualienhe->formEditLienHe();
         break;
 }

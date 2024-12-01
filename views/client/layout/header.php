@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="" />
-    <meta name="keywords" content="<?=$GLOBALS['settings']["1"]["content"]?>">
+    <meta name="keywords" content="<?= $GLOBALS['settings']["1"]["content"] ?>">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -70,9 +70,9 @@
                         } else {
                         ?>
                             <a href="?act=profile">
-                                <button class="box_favourite" >
+                                <button class="box_favourite">
                                     <div class="favourite"><i class="fa-regular fa-user" style="color: #ffffff;"></i></div>
-                                    <p><span class="capitalize"><?=$_SESSION['user']['name']?></span></p>
+                                    <p><span class="capitalize"><?= $_SESSION['user']['name'] ?></span></p>
                                 </button>
                             </a>
                         <?php
@@ -95,12 +95,12 @@
                         <ul class="list_nav" id="listNav">
                             <?php foreach ($categories as $cate): ?>
 
-                            <li class="category_item">
-                                <button class="category_menu">
-                                    <span class="capitalize"> <?= $cate['name'] ?></span>
-                                    <!-- <i class="fa-solid fa-chevron-right"></i> -->
-                                </button>
-                            </li>
+                                <li class="category_item">
+                                    <button class="category_menu">
+                                        <span class="capitalize"> <?= $cate['name'] ?></span>
+                                        <!-- <i class="fa-solid fa-chevron-right"></i> -->
+                                    </button>
+                                </li>
                             <?php endforeach; ?>
                         </ul>
                     </div>
@@ -112,25 +112,33 @@
                     </nav>
                 </div>
                 <div class="item_right">
-                    <div class="contact">
-                        <i class="fa-solid fa-headphones-simple"></i>
-                        <span>01236589745</span>
+                    <div class="item_right flex capitalize sub_right">
+                        <?=
+                        isset($_SESSION['user']) ? '
+                            <div class="my_cart">
+                            <a href="?act=carts" class=""><i class="fa-solid fa-basket-shopping"></i> My cart</a>
+                        </div>
+                            ' : "";
+                        ?>
+                        <div class="contact">
+                            <i class="fa-solid fa-headphones-simple"></i>
+                            <span>01236589745</span>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
     </header>
     <?php
-  if (isset($_SESSION['error'])) {
-    echo "<script>
+    if (isset($_SESSION['error'])) {
+        echo "<script>
         toastr.warning('{$_SESSION['error']}');
       </script>";
-    unset($_SESSION['error']);
-  }
-  if (isset($_SESSION['success'])) {
-    echo "<script>
+        unset($_SESSION['error']);
+    }
+    if (isset($_SESSION['success'])) {
+        echo "<script>
         toastr.success('{$_SESSION['success']}');
       </script>";
-    unset($_SESSION['success']);
-  }
-  ?>
+        unset($_SESSION['success']);
+    }
+    ?>

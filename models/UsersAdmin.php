@@ -41,7 +41,7 @@ class UsersAdmin extends connect
 
     
     public function checkEmail($email){
-        echo $sql = 'SELECT * FROM users WHERE email=? LIMIT 1';
+        $sql = 'SELECT * FROM users WHERE email=? LIMIT 1';
         $stmt = $this->connect()->prepare($sql);
         $stmt->execute([$email]);
         return $stmt->fetch();
