@@ -7,7 +7,8 @@
     <main>
         <div class="container_cart">
             <div class="center w d-flex ">
-                <a href="?act=client"><button class="btn_back_home"><i class="fa-solid fa-rotate-left back"></i></button></a>
+                <a href="?act=client"><button class="btn_back_home"><i
+                            class="fa-solid fa-rotate-left back"></i></button></a>
                 <div class="title_shopping">
                     <h4 class="capitalize">Thông tin vận chuyển</h4>
                     <p>Kiểm tra thông tin của bạn trước khi tiếp tục
@@ -25,23 +26,27 @@
                                         <form action="">
                                             <div class="label_Cart">
                                                 <label for="">Họ & tên:</label> <br>
-                                                <input type="text" name="name" class="input_carts"> <br>
+                                                <input type="text" name="name" value="<?= $user['name'] ?>"
+                                                    class="input_carts"> <br>
                                             </div>
                                             <div class="label_Cart">
                                                 <label for="">Địa chỉ:</label> <br>
-                                                <input type="text" name="address" class="input_carts"> <br>
+                                                <input type="text" name="address" value="<?= $user['address'] ?>"
+                                                    class="input_carts"> <br>
                                             </div>
                                             <div class="label_Cart">
                                                 <label for="">Số điện thoại:</label> <br>
-                                                <input type="text" name="hotline" class="input_carts"> <br>
+                                                <input type="text" name="hotline" value="<?= $user['phone'] ?>"
+                                                    class="input_carts"> <br>
                                             </div>
                                             <div class="label_Cart">
                                                 <label for="">Email:</label> <br>
-                                                <input type="text" name="email" class="input_carts"> <br>
+                                                <input type="text" name="email" value="<?= $user['email'] ?>"
+                                                    class="input_carts"> <br>
                                             </div>
                                             <div class="label_Cart">
                                                 <label for="">Ghi chú:</label> <br>
-                                                <textarea name="" id="" rows="7"></textarea>
+                                                <textarea name="note" id="" rows="7"></textarea>
                                             </div>
                                         </form>
                                     </div>
@@ -56,35 +61,62 @@
 
                     </div>
                 </form>
-                <div class="cart_right">
-                    <form action="" class="form_coupon ">
-                        <input type="text" placeholder="Nhập mã giảm giá">
-                        <button>Áp dụng</button>
-                    </form>
-                    <div>
-                        <h3>Tóm tắt đơn hàng</h3>
+                <div class="cart_rights">
+                    <div class="cart_right">
+
+                        <div>
+                            <h3>Đơn hàng của tôi</h3>
+                        </div>
+                        <ul class="list_amount">
+                            <li class="flex">
+                                <span class="capitalize">Sản phẩm</span>
+                                <span class="font-medium">Giá tiền</span>
+                            </li>
+                            <?php foreach ($carts as $cart) : ?>
+                            <li class="flex">
+                                <span class="capitalize"><?= $cart['product_name'] ?></span>
+                                <span
+                                    class="font-medium"><?= number_format($cart['variant_sale_price'] * 1000) ?></span>
+                            </li>
+                            <?php endforeach; ?>
+
+                        </ul>
+                        <div class="flex">
+                            <p class="capitalize font-semibold">Tổng cộng</p>
+                            <p class="font-semibold">1000đ</p>
+                        </div>
                     </div>
-                    <ul class="list_amount">
-                        <li class="flex">
-                            <span class="capitalize">Tổng cộng</span>
-                            <span class="font-medium">260.000đ</span>
-                        </li>
-                        <li class="flex">
-                            <span class="capitalize">Phí vận chuyển</span>
-                            <span class="font-medium">123.00đ</span>
-                        </li>
-                        <li class="flex">
-                            <span class="capitalize">Giảm giá</span>
-                            <span class="font-medium">$1000.00đ</span>
-                        </li>
-                    </ul>
-                    <div class="flex">
-                        <p class="capitalize font-semibold">Tổng cộng</p>
-                        <p class="font-semibold">1000đ</p>
+                    <div class="cart_right">
+                        <!--  -->
+                        <form action="" class="form_coupon ">
+                            <input type="text" placeholder="Nhập mã giảm giá">
+                            <button>Áp dụng</button>
+                        </form>
+                        <div>
+                            <h3>Tóm tắt đơn hàng</h3>
+                        </div>
+                        <ul class="list_amount">
+                            <li class="flex">
+                                <span class="capitalize">Tổng cộng</span>
+                                <span class="font-medium">260.000đ</span>
+                            </li>
+                            <li class="flex">
+                                <span class="capitalize">Phí vận chuyển</span>
+                                <span class="font-medium">123.00đ</span>
+                            </li>
+                            <li class="flex">
+                                <span class="capitalize">Giảm giá</span>
+                                <span class="font-medium">$1000.00đ</span>
+                            </li>
+                        </ul>
+                        <div class="flex">
+                            <p class="capitalize font-semibold">Tổng cộng</p>
+                            <p class="font-semibold">1000đ</p>
+                        </div>
                     </div>
+
                 </div>
             </div>
-        </div>
 
     </main>
 </body>
