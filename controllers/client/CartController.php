@@ -11,6 +11,7 @@ class CartController extends Cart
         foreach($carts as $cart) {
             $sum += $cart['variant_sale_price'] * $cart['quantity'];
         }
+        $_SESSION['total'] = $sum;
         // echo '<pre>';
         // print_r($sum);
         // echo '</pre>';
@@ -60,6 +61,26 @@ class CartController extends Cart
                 $_SESSION['success'] = 'Cập nhật giỏ hàng thành công';
                 exit();
             }
+        }elseif($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['apply_coupon'])) {
+            $coupon = $this->getCouponByCode($_POST['coupon_code']);
+            if(!$coupon) {
+                header('Location: ' . $_SERVER['HTTP_REFERER']);
+                $_SESSION['error'] = 'Mã giảm giá không tồn tại';
+                exit();
+            }
+            if(isset($_SESSION['coupon'])) {
+                header('Location: ' . $_SERVER['HTTP_REFERER']);
+                $_SESSION['error'] = 'Chỉ sử dụng được 1 mã giảm giá cho 1 đơn hàng';
+                exit();
+            }
+            if(isset($coupon)) {
+                $_SESSION['coupon'] = $coupon;
+                $totalCoupon = $this->handleCoupon($coupon, $_SESSION['total']);
+                $_SESSION['totalCoupon'] = $totalCoupon;
+                $_SESSION['error'] = 'Áp dụng mã giảm giá thành công';
+                header('Location: ' . $_SERVER['HTTP_REFERER']);
+                exit();
+            }
         }
     }
 
@@ -77,5 +98,14 @@ class CartController extends Cart
             // var_dump($_POST);
             // echo '<pre>';
         }
+    }
+
+    public function handleCoupon($coupon, $total) {
+        if($coupon['coupons_type'] == 'Percentage') {
+            $totalCoupon = ($total * ($coupon['coupon_value'] / 100));
+        }elseif($coupon['coupons_type'] == 'Fixed Amount') {
+            $totalCoupon = $coupon['coupon_value'];
+        }
+        return $totalCoupon;
     }
 }

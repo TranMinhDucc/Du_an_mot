@@ -5,16 +5,16 @@
 
 <body>
     <main>
-        <div class="container_cart">
-            <div class="center w d-flex ">
-                <a href="?act=client"><button class="btn_back_home"><i class="fa-solid fa-rotate-left back"></i></button></a>
-                <div class="title_shopping">
-                    <h4 class="capitalize">Giỏ hàng của bạn</h4>
-                    <p>(2) items</p>
+        <form action="?act=update-cart" method="post">
+            <div class="container_cart">
+                <div class="center w d-flex ">
+                    <a href="?act=client"><button class="btn_back_home"><i class="fa-solid fa-rotate-left back"></i></button></a>
+                    <div class="title_shopping">
+                        <h4 class="capitalize">Giỏ hàng của bạn</h4>
+                        <p>(2) items</p>
+                    </div>
                 </div>
-            </div>
-            <div class="box_cart center w d-flex">
-                <form action="?act=update-cart" method="post">
+                <div class="box_cart center w d-flex">
                     <div class="cart_left">
                         <div>
                             <ul>
@@ -61,37 +61,37 @@
                         </div>
 
                     </div>
-                </form>
-                <div class="cart_right">
-                    <form action="" class="form_coupon ">
-                        <input type="text" placeholder="Nhập mã giảm giá">
-                        <button>Áp dụng</button>
-                    </form>
-                    <div>
-                        <h3>Tóm tắt đơn hàng</h3>
-                    </div>
-                    <ul class="list_amount">
-                        <li class="flex">
-                            <span class="capitalize">Tổng cộng</span>
-                            <span class="font-medium"><?= number_format($sum * 1000) ?>đ</span>
-                        </li>
-                        <li class="flex">
-                            <span class="capitalize">Phí vận chuyển</span>
-                            <span class="font-medium">$7.00</span>
-                        </li>
-                        <li class="flex">
-                            <span class="capitalize">Giảm giá</span>
-                            <span class="font-medium">$000.00</span>
-                        </li>
-                    </ul>
-                    <div class="flex">
-                        <p class="capitalize font-semibold">Tổng cộng</p>
-                        <p class="font-semibold"><?= number_format($sum * 1000) ?>đ</p>
+
+                    <div class="cart_right">
+                        <form action="" class="form_coupon ">
+                            <input type="text" name="coupon_code" placeholder="Nhập mã giảm giá">
+                            <button type="submit" name="apply_coupon">Áp dụng</button>
+                        </form>
+                        <div>
+                            <h3>Tóm tắt đơn hàng</h3>
+                        </div>
+                        <ul class="list_amount">
+                            <li class="flex">
+                                <span class="capitalize">Tổng cộng</span>
+                                <span class="font-medium"><?= number_format($sum * 1000) ?>đ</span>
+                            </li>
+                            <li class="flex">
+                                <span class="capitalize">Phí vận chuyển</span>
+                                <span class="font-medium">$7.00</span>
+                            </li>
+                            <li class="flex">
+                                <span class="capitalize">Giảm giá</span>
+                                <span class="font-medium"><?= number_format($_SESSION['totalCoupon'] * 1000) ?>đ</span>
+                            </li>
+                        </ul>
+                        <div class="flex">
+                            <p class="capitalize font-semibold">Tổng cộng</p>
+                            <p class="font-semibold"><?= number_format(($sum - $_SESSION['totalCoupon']) * 1000) ?>đ</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-
+        </form>
     </main>
 </body>
 <?php include '../views/client/layout/footer.php'; ?>
