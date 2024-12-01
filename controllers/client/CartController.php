@@ -77,7 +77,7 @@ class CartController extends Cart
                 $_SESSION['coupon'] = $coupon;
                 $totalCoupon = $this->handleCoupon($coupon, $_SESSION['total']);
                 $_SESSION['totalCoupon'] = $totalCoupon;
-                $_SESSION['error'] = 'Áp dụng mã giảm giá thành công';
+                $_SESSION['success'] = 'Áp dụng mã giảm giá thành công';
                 header('Location: ' . $_SERVER['HTTP_REFERER']);
                 exit();
             }

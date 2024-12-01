@@ -29,6 +29,8 @@ class HomeController
         } else {
             // $kyw = '';
             $categories = $this->categories->listCategory();
+            $topProductView = $this->products->topPrdViewCount();
+            // var_dump($topProductView); die();
             $products = $this->products->listProduct();
             $GLOBALS['settings'] = $this->setting->getAllSetting();
             // var_dump($setting); die();
@@ -39,6 +41,8 @@ class HomeController
     {
         $categories = $this->categories->listCategory();
         $productDetail = $this->products->getProductBySlug($_GET['slug']);
+        $count = $this->products->viewCount($_GET['slug']);
+        // var_dump($count); die();
         // Hàm reset để lấy ra phần tử đầu tiên
         $productDetail = reset($productDetail);
         include '../views/client/product-detail.php';
