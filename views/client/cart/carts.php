@@ -81,12 +81,19 @@
                             </li>
                             <li class="flex">
                                 <span class="capitalize">Giảm giá</span>
-                                <span class="font-medium"><?= number_format($_SESSION['totalCoupon'] * 1000) ?>đ</span>
+                                <span class="font-medium">
+                                    <?= 
+                                    isset($_SESSION['totalCoupon']) ? 
+                                    number_format($_SESSION['totalCoupon'] * 1000) 
+                                    : 0;
+                                    ?>đ</span>
                             </li>
                         </ul>
                         <div class="flex">
                             <p class="capitalize font-semibold">Tổng cộng</p>
-                            <p class="font-semibold"><?= number_format(($sum - $_SESSION['totalCoupon']) * 1000) ?>đ</p>
+                            <p class="font-semibold"><?= 
+                                isset($_SESSION['totalCoupon']) ?
+                            number_format(($sum - $_SESSION['totalCoupon']) * 1000) : number_format($sum * 1000) ?>đ</p>
                         </div>
                     </div>
                 </div>
@@ -94,4 +101,5 @@
         </form>
     </main>
 </body>
-<?php include '../views/client/layout/footer.php'; ?>
+<?php 
+include '../views/client/layout/footer.php'; ?>
