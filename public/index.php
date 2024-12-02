@@ -40,6 +40,7 @@ require_once '../controllers/admin/UserController.php';
 require_once '../controllers/admin/DashboardController.php';
 require_once '../controllers/admin/SettingController.php';
 require_once '../controllers/admin/CouponAdminController.php';
+require_once '../controllers/admin/OrdersControler.php';
 require_once '../models/Settings.php';
 require_once '../controllers/client/HomeController.php';
 require_once '../controllers/client/AuthController.php';
@@ -52,6 +53,7 @@ $categoryAdmin = new CategoryController();
 $userAdmin = new UserController();
 $productAdmin = new ProductController();
 $couponAdmin = new CouponAdminController();
+$orderAdmin = new OrdersControler();
 
 
 $profile = new ProfileController();
@@ -130,6 +132,15 @@ switch ($action) {
         break;
     case 'coupon-delete':
         $couponAdmin->delete();
+        break;
+    case 'orders':
+        $couponAdmin->delete();
+        break;
+    case 'manager-orders':
+        $orderAdmin->index();
+        break;
+    case 'order-edit':
+        $orderAdmin->updateOrder();
         break;
 
         // ======================== CLIENT ===========================

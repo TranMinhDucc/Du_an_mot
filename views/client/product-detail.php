@@ -46,8 +46,10 @@
                         </p>
                         <div class="border_action">
                             <button class="btn_action decrease"><i class="fa-solid fa-circle-minus"></i></button>
+                            <!-- <span name='quantity' class="quantity">1</span> -->
                             <input type="number" name='quantity'>
-                            <button class="btn_action increase"><i class="fa-solid fa-circle-plus"></i></button>
+                            <a class="btn_action increase"><i class="fa-solid fa-circle-plus"></i></a>
+
                         </div>
                         <div class="share">
                             <label for="">Share:</label>
@@ -407,6 +409,29 @@
         }
 
 
+    });
+    // Lấy các phần tử cần sử dụng
+    document.querySelectorAll('.border_action').forEach(borderAction => {
+        const decreaseButton = borderAction.querySelector('.decrease');
+        const increaseButton = borderAction.querySelector('.increase');
+        const quantityInput = borderAction.querySelector('input[name="quantity"]');
+
+        // Đặt giá trị mặc định nếu chưa có
+        quantityInput.value = quantityInput.value || 1;
+
+        // Xử lý khi bấm nút -
+        decreaseButton.addEventListener('click', () => {
+            let currentValue = parseInt(quantityInput.value) || 1;
+            if (currentValue > 1) {
+                quantityInput.value = currentValue - 1;
+            }
+        });
+
+        // Xử lý khi bấm nút +
+        increaseButton.addEventListener('click', () => {
+            let currentValue = parseInt(quantityInput.value) || 1;
+            quantityInput.value = currentValue + 1;
+        });
     });
 </script>
 
