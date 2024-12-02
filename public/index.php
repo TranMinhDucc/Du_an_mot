@@ -11,7 +11,7 @@ $admin_routes = [
     'category-create', 'category-edit', 'category-delete', 'users', 
     'user-create', 'create', 'user-edit', 'setting', 'coupon', 'coupon-create', 
     'coupon-edit', 'coupon-update', 'coupon-delete', 'lienhe', 'chitietlienhe', 
-    'sualienhe', 'xoalienhe', 'formsualienhe'
+    'sualienhe', 'xoalienhe', 'formsualienhe', 'manager-orders', 'order-edit'
 ];
 // Lấy hành động hiện tại từ URL
 $action = isset($_GET['act']) ? $_GET['act'] : 'client';

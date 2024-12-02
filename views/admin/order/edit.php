@@ -35,8 +35,8 @@
                                     <option value="Confirmed" <?= $order['status'] == 'Confirmed' ? 'selected' : '' ?>>
                                         Confirmed
                                     </option>
-                                    <option value="Shipped" <?= $order['status'] == 'Shipped' ? 'selected' : '' ?>>
-                                        Shipped
+                                    <option value="Ongoing" <?= $order['status'] == 'Ongoing' ? 'selected' : '' ?>>
+                                        Ongoing
                                     </option>
                                     <option value="Delivered" <?= $order['status'] == 'Delivered' ? 'selected' : '' ?>>
                                         Delivered

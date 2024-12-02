@@ -62,9 +62,9 @@
                                                 } elseif ($value['status'] == "Confirmed") {
                                                     echo '<button type="button"
                                             class="btn btn-primary btn-sm">Confirmed</button>';
-                                                } elseif ($value['status'] == "Shipped") {
+                                                } elseif ($value['status'] == "Ongoing") {
                                                     echo '<button type="button"
-                                            class="btn btn-warning btn-sm">Shipped</button>';
+                                            class="btn btn-info btn-sm">Ongoing</button>';
                                                 } else {
                                                     echo '<button type="button"
                                             class="btn btn-success btn-sm">Delivered</button>';
