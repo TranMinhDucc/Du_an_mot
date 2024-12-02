@@ -94,20 +94,18 @@
                             <li class="flex">
                                 <span class="capitalize">Giảm giá</span>
                                 <span class="font-medium">
-                                    <?=
-                                    isset($_SESSION['totalCoupon']) ?
-                                        number_format($_SESSION['totalCoupon'] * 1000)
-                                        : 0;
+                                    <?= 
+                                    isset($_SESSION['totalCoupon']) ? 
+                                    number_format($_SESSION['totalCoupon'] * 1000) 
+                                    : 0;
                                     ?>đ</span>
                             </li>
                         </ul>
                         <div class="flex">
                             <p class="capitalize font-semibold">Tổng cộng</p>
-                            <p class="font-semibold">
-                                <?=
+                            <p class="font-semibold"><?= 
                                 isset($_SESSION['totalCoupon']) ?
-                                    number_format(($sum - $_SESSION['totalCoupon']) * 1000) : number_format($sum * 1000) ?>đ
-                            </p>
+                            number_format(($sum - $_SESSION['totalCoupon']) * 1000) : number_format($sum * 1000) ?>đ</p>
                         </div>
                     </div>
                 </div>
@@ -116,6 +114,7 @@
         </form>
     </main>
 </body>
+<<<<<<< HEAD
 <script>
     // Lấy tất cả các phần tử có class "border_action"
     document.querySelectorAll('.border_action').forEach(borderAction => {
@@ -144,3 +143,7 @@
     });
 </script>
 <?php include '../views/client/layout/footer.php'; ?>
+=======
+<?php 
+include '../views/client/layout/footer.php'; ?>
+>>>>>>> 8f854ea3c0d86fffeb3e2ed9115d3f2f37a24df9

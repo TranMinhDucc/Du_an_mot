@@ -100,6 +100,8 @@ class ProfileController extends User
                     header('Location: ?act=update-profile');
                     exit();
                 }
+            }else{
+                header('Location: ?act=update-profile');
             }
             
             // var_dump($_POST); die();

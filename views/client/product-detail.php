@@ -45,16 +45,16 @@
                             <?= $productDetail['product_description'] ?>
                         </p>
                         <div class="border_action">
+<<<<<<< HEAD
                             <a class="btn_action decrease"><i class="fa-solid fa-circle-minus"></i></a>
                             <!-- <span name='quantity' class="quantity">1</span> -->
+=======
+                            <button class="btn_action decrease"><i class="fa-solid fa-circle-minus"></i></button>
+>>>>>>> 8f854ea3c0d86fffeb3e2ed9115d3f2f37a24df9
                             <input type="number" name='quantity'>
                             <a class="btn_action increase"><i class="fa-solid fa-circle-plus"></i></a>
 
                         </div>
-                        <!-- <div class="tags">
-                            <label for=""> Total amount:</label>
-                            <span class="total_price sale-price-variants">1200</span>
-                        </div> -->
                         <div class="share">
                             <label for="">Share:</label>
                             <ul class="details-share-list">
