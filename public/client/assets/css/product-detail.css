@@ -117,7 +117,6 @@ h1 {
   color: white; /* Màu chữ khi được chọn */
 }
 .description {
-  margin-bottom: 20px;
   font-size: 14px;
   color: #555;
 }
@@ -526,4 +525,80 @@ hr {
 .btn:hover {
   background-color: green;
   color: white;
+}
+/* Bố cục chính của border_action */
+.border_action {
+  display: flex;
+  align-items: center;
+
+  background-color: #f9f9fc; /* Màu nền tổng thể nhạt */
+  padding: 0px 5px;
+  border-radius: 25px; /* Làm tròn toàn bộ khung */
+
+  width: fit-content;
+}
+
+/* Giao diện nút (tăng/giảm) */
+.btn_action {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%; /* Làm tròn nút */
+  background-color: #d9d9df; /* Màu nền nút mặc định */
+  color: white;
+  font-size: 14px;
+  text-decoration: none; /* Loại bỏ gạch chân cho thẻ <a> */
+  cursor: pointer;
+  transition: all 0.3s ease; /* Hiệu ứng chuyển động */
+}
+
+/* Nút tăng màu khác */
+.btn_action.increase {
+  background-color: #1a1a3d; /* Màu xanh đậm */
+}
+
+/* Hiệu ứng hover cho nút */
+.btn_action:hover {
+  opacity: 0.9; /* Làm mờ nhẹ khi hover */
+}
+
+/* Giao diện ô nhập số lượng */
+input[name="quantity"] {
+  width: 36px;
+  height: 36px;
+  text-align: center; /* Căn giữa số */
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: #333; /* Màu chữ */
+  background-color: transparent; /* Nền trong suốt */
+  font-weight: bold;
+  margin: 0;
+}
+
+/* Đảm bảo input không thể chọn số ngoài khoảng */
+input[name="quantity"]::-webkit-inner-spin-button,
+input[name="quantity"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Đáp ứng màn hình nhỏ */
+@media (max-width: 768px) {
+  .border_action {
+    gap: 8px;
+    padding: 6px;
+  }
+  .btn_action {
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+  }
+  input[name="quantity"] {
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+  }
 }

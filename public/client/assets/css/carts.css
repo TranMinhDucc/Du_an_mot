@@ -26,7 +26,9 @@
   display: flex;
   justify-content: space-between;
 }
-
+.flex {
+  gap: 10px;
+}
 .form_coupon {
   border: 1px solid rgb(114, 114, 114);
   display: flex;

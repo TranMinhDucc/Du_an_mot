@@ -44,13 +44,15 @@
                                                         <a class="btn_action increase"><i
                                                                 class="fa-solid fa-circle-plus"></i></a>
                                                     </div>
+
                                                 </div>
                                                 <div class="flex">
                                                     <div>
-                                                        <button type="submit" name="update_cart"
+                                                        <a href="" class="btn_remove capitalize"">
+                                                        <button type=" submit" name="update_cart"
                                                             class="btn_remove capitalize">
                                                             <i class="fa-regular fa-trash-can"></i> Update
-                                                        </button>
+                                                            </button></a>
                                                     </div>
                                                     <div>
                                                         <a href="?act=delete-cart&cart_id=<?= $cart['cart_id'] ?>"
@@ -114,4 +116,31 @@
         </form>
     </main>
 </body>
+<script>
+    // Lấy tất cả các phần tử có class "border_action"
+    document.querySelectorAll('.border_action').forEach(borderAction => {
+        const decreaseButton = borderAction.querySelector('.decrease');
+        const increaseButton = borderAction.querySelector('.increase');
+        const quantityInput = borderAction.querySelector('.quantity');
+
+        // Đảm bảo giá trị mặc định của input là ít nhất 1
+        quantityInput.value = quantityInput.value || 1;
+
+        // Xử lý khi bấm nút giảm (-)
+        decreaseButton.addEventListener('click', (event) => {
+            event.preventDefault(); // Ngăn chặn hành động mặc định của thẻ <a>
+            let currentValue = parseInt(quantityInput.value) || 1;
+            if (currentValue > 1) {
+                quantityInput.value = currentValue - 1;
+            }
+        });
+
+        // Xử lý khi bấm nút tăng (+)
+        increaseButton.addEventListener('click', (event) => {
+            event.preventDefault(); // Ngăn chặn hành động mặc định của thẻ <a>
+            let currentValue = parseInt(quantityInput.value) || 1;
+            quantityInput.value = currentValue + 1;
+        });
+    });
+</script>
 <?php include '../views/client/layout/footer.php'; ?>
