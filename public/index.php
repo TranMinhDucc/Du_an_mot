@@ -121,7 +121,7 @@ switch ($action) {
         break;
         // ======================== USER ===========================
     case 'profile';
-        include '../views/client/user/dashboard.php';
+        $profile->dashboard();
         break;
     case 'update-profile';
         $profile->updateProfile();

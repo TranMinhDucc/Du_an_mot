@@ -56,4 +56,49 @@ class User extends connect
         $stmt->execute([$email]);
         return $stmt->fetch();
     }
+
+    public function infOrder(){
+        $sql = '
+            SELECT 
+                order_detail.order_detail_id    AS order_id,
+                order_detail.created_at         AS created_at,
+                SUM(orders.quantity)            AS order_quantity,
+                orders.user_id                  AS order_user_id,
+                order_detail.status             AS order_status,
+                order_detail.amount             AS total_amount
+            FROM order_detail
+            LEFT JOIN orders ON order_detail.order_detail_id = orders.order_detail_id
+            WHERE orders.user_id = ?
+            GROUP BY order_detail.order_detail_id,  orders.user_id, order_detail.status
+
+
+        ';
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute([$_SESSION['user']['id']]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function countAllOrder(){
+        $sql = '
+            SELECT 
+                COUNT(*) AS  countAllStatus
+            FROM order_detail   
+            WHERE user_id = ? 
+        ';
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute([$_SESSION['user']['id']]);
+        return $stmt->fetch();
+    }
+
+    public function countOrderDelivered(){
+        $sql = '
+            SELECT 
+                status, COUNT(*) AS  totalStatus
+            FROM order_detail   
+            WHERE user_id = ? AND status = "Delivered"
+        ';
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute([$_SESSION['user']['id']]);
+        return $stmt->fetch();
+    }
 }

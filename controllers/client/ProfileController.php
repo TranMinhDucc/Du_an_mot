@@ -11,9 +11,19 @@ class ProfileController extends User
         $this->categories   = new Category();
         $this->setting      = new Settings();
     }
+    public function dashboard(){
+        $informationOrder = $this->infOrder($_SESSION['user']['id']);
+        $countOrderCompleted = $this->countOrderDelivered($_SESSION['user']['id']);
+        $getAllOrder = $this->countAllOrder($_SESSION['user']['id']);
+        // var_dump($getAllOrder["countAllStatus"]);die();
+        include '../views/client/user/dashboard.php';
+    }
+
     public function updateProfile()
     {
         $categories = $this->categories->listCategory();
+        
+        // var_dump($informationOrder);die();
         $GLOBALS['settings'] = $this->setting->getAllSetting();
         if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['update-profile'])) {
             
