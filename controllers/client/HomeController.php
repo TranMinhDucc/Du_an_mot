@@ -29,7 +29,9 @@ class HomeController
         } else {
             // $kyw = '';
             $categories = $this->categories->listCategory();
+            $categoriesHome = $this->categories->listCategoryHome();
             $products = $this->products->listProduct();
+            $productsHome = $this->products->listProductHome();
             $GLOBALS['settings'] = $this->setting->getAllSetting();
             // var_dump($setting); die();
             include '../views/client/index.php';

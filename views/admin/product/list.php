@@ -76,11 +76,13 @@
                   <?php endforeach; ?>
                 </tbody>
                 <tfoot>
-                  <th>Tên sản phẩm</th>
-                  <th>Giá sản phẩm</th>
-                  <th>Giá khuyến mãi</th>
-                  <th>Danh mục</th>
-                  <th>Thao tác</th>
+                <th>Tên sản phẩm</th>
+                    <th>Ảnh sản phẩm</th>
+                    <th>Giá sản phẩm & cân nặng</th>
+                    <th>Giá khuyến mãi</th>
+                    <th>Danh Mục</th>
+                    <th>Trạng thái</th>
+                    <th>Thao tác</th>
                 </tfoot>
               </table>
             </div>

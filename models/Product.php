@@ -37,7 +37,7 @@ class product extends connect
         return $this->connect()->lastInsertId();
     }
 
-    public function listProduct(): array
+    public function listProduct()
     {
         $sql = "SELECT 
                     products.id AS product_id, 
@@ -77,6 +77,47 @@ class product extends connect
         }
         return $groupedProduct;
     }
+    public function listProductHome()
+    {
+        $sql = "SELECT 
+                    products.id AS product_id, 
+                    products.name AS product_name, 
+                    products.prices AS product_price, 
+                    products.sale AS product_sale_price, 
+                    products.images AS product_image,
+                    products.slug AS product_slug,
+                    products.status AS product_status, 
+                    categories.id AS category_id, 
+                    categories.name AS category_name,
+                    products_variants.id AS product_variant_id,
+                    variant_weights.weight AS product_variant_weight
+                FROM products 
+                LEFT JOIN categories ON products.catrgories_id = categories.id
+                LEFT JOIN products_variants ON products.id = products_variants.product_id
+                LEFT JOIN variant_weights ON products_variants.variant_weight_id = variant_weights.id
+                WHERE products.status = 'active'  
+                ";
+
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute();
+        $listProductHome = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        $groupedProduct = [];
+
+        // Lặp qua từng sản phẩm trong danh sách product
+        foreach ($listProductHome as $product) {
+            if (!isset($groupedProduct[$product['product_id']])) {
+                $groupedProduct[$product['product_id']] = $product;
+                $groupedProduct[$product['product_id']]['variants'] = [];
+            }
+            $groupedProduct[$product['product_id']]['variants'][] = [
+                'product_id' => $product['product_id'],
+                'product_variant_weight' => $product['product_variant_weight'],
+            ];
+        }
+        return $groupedProduct;
+    }
+
 
     public function getProductById($product_id)
     {
@@ -204,5 +245,12 @@ class product extends connect
             }
         }
         return $groupedProduct;
+    }
+
+    public function checkProductName($name){
+        $sql = 'SELECT * FROM products WHERE email=? LIMIT 1';
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute([$name]);
+        return $stmt->fetch();
     }
 }
