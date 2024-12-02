@@ -32,6 +32,7 @@ class HomeController
             $categoriesHome = $this->categories->listCategoryHome();
             $products = $this->products->listProduct();
             $productsHome = $this->products->listProductHome();
+            $topProductView = $this->products->topPrdViewCount();
             $GLOBALS['settings'] = $this->setting->getAllSetting();
             // var_dump($setting); die();
             include '../views/client/index.php';

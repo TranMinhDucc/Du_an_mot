@@ -26,9 +26,10 @@
             </div>
             <div class="swiper-wrapper">
                 <?php foreach ($categoriesHome as $cate): ?>
-                <a href="">
-                    <div class="box_swiper">
-                        <div class="box_img_categories">
+                    <a href="">
+                        <div class="box_swiper">
+                            <div class="box_img_categories">
+
                                 <img src="./images/category/<?= $cate['image'] ?>" class="image text-center" alt="">
                             </div>
                             <div class=" name_categories"><?= $cate['name'] ?>
@@ -63,19 +64,15 @@
             </div>
             <div class="popular_items">
                 <?php foreach ($productsHome as $pro) : ?>
-                <div class="flex_popular">
-                    <div class="box_popular">
-                        <div class="item_img">
-                            <a href="?act=product-detail&slug=<?= $pro['product_slug'] ?>">
-                                <img src="./images/product/<?= $pro['product_image'] ?>" alt=""
-                                    class="img_home_prd image text-center">
-                            </a>
-                            <button class="heart-button"><i class="fa-regular fa-heart"></i></button>
-                            <button class="bag-button"><i class="fa-solid fa-bag-shopping"></i>Add</button>
-                        </div>
-                        <div class="content_popular">
-                            <div>
-                                <p class="name_popular"><?= $pro['product_name'] ?></p>
+                    <div class="flex_popular">
+                        <div class="box_popular">
+                            <div class="item_img">
+                                <a href="?act=product-detail&slug=<?= $pro['product_slug'] ?>">
+                                    <img src="./images/product/<?= $pro['product_image'] ?>" alt=""
+                                        class="img_home_prd image text-center">
+                                </a>
+                                <button class="heart-button"><i class="fa-regular fa-heart"></i></button>
+                                <button class="bag-button"><i class="fa-solid fa-bag-shopping"></i>Add</button>
                             </div>
                             <div class="content_popular">
                                 <div>
@@ -111,20 +108,6 @@
             </div>
             <!-- Lấy theo sản phẩm có nhiều lượt xem nhất -->
             <div class="popular_items">
-                <?php foreach ($productsHome as $pro) : ?>
-                <div class="flex_popular">
-                    <div class="box_popular">
-                        <div class="item_img">
-                            <a href="#h">
-                                <img src="./images/product/<?= $pro['product_image'] ?>" alt=""
-                                    class="img_home_prd image text-center">
-                            </a>
-                            <button class="heart-button"><i class="fa-regular fa-heart"></i></button>
-                            <button class="bag-button"><i class="fa-solid fa-bag-shopping"></i>Add</button>
-                        </div>
-                        <div class="content_popular">
-                            <div>
-                                <p class="name_popular">Watermelon Medium 4kg +</p>
                 <?php foreach ($topProductView as $value) : ?>
                     <div class="flex_popular">
                         <div class="box_popular">
