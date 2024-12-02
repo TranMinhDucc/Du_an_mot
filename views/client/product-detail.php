@@ -35,22 +35,18 @@
                         <div class="rating">
                             <label for="">Weight: </label>
                             <?php foreach ($productDetail['variants'] as $variant) : ?>
-                            <div class="variants">
-                                <button class="variant btn-weight"
-                                    data-weight="<?= $variant['product_variant_weight'] ?>"><?= $variant['product_variant_weight'] ?></button>
-                            </div>
+                                <div class="variants">
+                                    <button class="variant btn-weight"
+                                        data-weight="<?= $variant['product_variant_weight'] ?>"><?= $variant['product_variant_weight'] ?></button>
+                                </div>
                             <?php endforeach ?>
                         </div>
                         <p class="description">Mô tả:
                             <?= $productDetail['product_description'] ?>
                         </p>
                         <div class="border_action">
-<<<<<<< HEAD
-                            <a class="btn_action decrease"><i class="fa-solid fa-circle-minus"></i></a>
-                            <!-- <span name='quantity' class="quantity">1</span> -->
-=======
                             <button class="btn_action decrease"><i class="fa-solid fa-circle-minus"></i></button>
->>>>>>> 8f854ea3c0d86fffeb3e2ed9115d3f2f37a24df9
+                            <!-- <span name='quantity' class="quantity">1</span> -->
                             <input type="number" name='quantity'>
                             <a class="btn_action increase"><i class="fa-solid fa-circle-plus"></i></a>
 
@@ -358,85 +354,85 @@
     </section>
 </main>
 <script>
-document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function() {
 
-    let selectedWeight = null;
-    const variants = <?= json_encode($productDetail['variants']) ?>;
-    const weightButtons = document.querySelectorAll('.btn-weight');
-    console.log(weightButtons);
+        let selectedWeight = null;
+        const variants = <?= json_encode($productDetail['variants']) ?>;
+        const weightButtons = document.querySelectorAll('.btn-weight');
+        console.log(weightButtons);
 
-    weightButtons.forEach(button => {
-        button.addEventListener('click', function(event) {
-            event.preventDefault();
-            selectedWeight = this.getAttribute('data-weight');
-            console.log(selectedWeight);
+        weightButtons.forEach(button => {
+            button.addEventListener('click', function(event) {
+                event.preventDefault();
+                selectedWeight = this.getAttribute('data-weight');
+                console.log(selectedWeight);
 
-            checkPrice();
+                checkPrice();
+            })
         })
-    })
 
-    function checkPrice() {
-        if (selectedWeight) {
-            const matchedVariant = variants.find(variant =>
-                variant.product_variant_weight === selectedWeight
-            );
-            if (matchedVariant) {
-                const priceElement = document.querySelector('.price-variants');
-                const salePriceElement = document.querySelector('.sale-price-variants');
-                const variantIdElement = document.getElementById('variant_id');
+        function checkPrice() {
+            if (selectedWeight) {
+                const matchedVariant = variants.find(variant =>
+                    variant.product_variant_weight === selectedWeight
+                );
+                if (matchedVariant) {
+                    const priceElement = document.querySelector('.price-variants');
+                    const salePriceElement = document.querySelector('.sale-price-variants');
+                    const variantIdElement = document.getElementById('variant_id');
 
-                if (priceElement) {
-                    priceElement.textContent = matchedVariant.price;
-                }
-                if (salePriceElement) {
-                    salePriceElement.textContent = matchedVariant.variant_sale_price;
-                }
-                if (variantIdElement) {
-                    variantIdElement.value = matchedVariant.product_variant_id;
-                }
-            } else {
-                const priceElement = document.querySelector('.price-variants');
-                const salePriceElement = document.querySelector('.sale-price-variants');
-                const variantIdElement = document.getElementById('variant_id');
+                    if (priceElement) {
+                        priceElement.textContent = matchedVariant.price;
+                    }
+                    if (salePriceElement) {
+                        salePriceElement.textContent = matchedVariant.variant_sale_price;
+                    }
+                    if (variantIdElement) {
+                        variantIdElement.value = matchedVariant.product_variant_id;
+                    }
+                } else {
+                    const priceElement = document.querySelector('.price-variants');
+                    const salePriceElement = document.querySelector('.sale-price-variants');
+                    const variantIdElement = document.getElementById('variant_id');
 
-                if (priceElement) {
-                    priceElement.textContent = '';
-                }
-                if (salePriceElement) {
-                    salePriceElement.textContent = '';
-                }
-                if (variantIdElement) {
-                    variantIdElement.value = '';
+                    if (priceElement) {
+                        priceElement.textContent = '';
+                    }
+                    if (salePriceElement) {
+                        salePriceElement.textContent = '';
+                    }
+                    if (variantIdElement) {
+                        variantIdElement.value = '';
+                    }
                 }
             }
         }
-    }
 
 
-});
-// Lấy các phần tử cần sử dụng
-document.querySelectorAll('.border_action').forEach(borderAction => {
-    const decreaseButton = borderAction.querySelector('.decrease');
-    const increaseButton = borderAction.querySelector('.increase');
-    const quantityInput = borderAction.querySelector('input[name="quantity"]');
-
-    // Đặt giá trị mặc định nếu chưa có
-    quantityInput.value = quantityInput.value || 1;
-
-    // Xử lý khi bấm nút -
-    decreaseButton.addEventListener('click', () => {
-        let currentValue = parseInt(quantityInput.value) || 1;
-        if (currentValue > 1) {
-            quantityInput.value = currentValue - 1;
-        }
     });
+    // Lấy các phần tử cần sử dụng
+    document.querySelectorAll('.border_action').forEach(borderAction => {
+        const decreaseButton = borderAction.querySelector('.decrease');
+        const increaseButton = borderAction.querySelector('.increase');
+        const quantityInput = borderAction.querySelector('input[name="quantity"]');
 
-    // Xử lý khi bấm nút +
-    increaseButton.addEventListener('click', () => {
-        let currentValue = parseInt(quantityInput.value) || 1;
-        quantityInput.value = currentValue + 1;
+        // Đặt giá trị mặc định nếu chưa có
+        quantityInput.value = quantityInput.value || 1;
+
+        // Xử lý khi bấm nút -
+        decreaseButton.addEventListener('click', () => {
+            let currentValue = parseInt(quantityInput.value) || 1;
+            if (currentValue > 1) {
+                quantityInput.value = currentValue - 1;
+            }
+        });
+
+        // Xử lý khi bấm nút +
+        increaseButton.addEventListener('click', () => {
+            let currentValue = parseInt(quantityInput.value) || 1;
+            quantityInput.value = currentValue + 1;
+        });
     });
-});
 </script>
 
 <?php include '../views/client/layout/footer.php'; ?>
