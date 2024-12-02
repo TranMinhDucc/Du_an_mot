@@ -29,9 +29,9 @@ class HomeController
         } else {
             // $kyw = '';
             $categories = $this->categories->listCategory();
-            $topProductView = $this->products->topPrdViewCount();
-            // var_dump($topProductView); die();
+            $categoriesHome = $this->categories->listCategoryHome();
             $products = $this->products->listProduct();
+            $productsHome = $this->products->listProductHome();
             $GLOBALS['settings'] = $this->setting->getAllSetting();
             // var_dump($setting); die();
             include '../views/client/index.php';

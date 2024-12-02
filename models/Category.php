@@ -9,6 +9,15 @@ class Category extends connect
         $stmt->execute();
         return $stmt->fetchAll();
     }
+    public function listCategoryHome()
+    {
+        $sql = "SELECT * FROM categories
+        WHERE categories.status = 'active' 
+        ";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
     public function create($name, $status, $image, $description)
     {
         $sql = "INSERT INTO categories(name, status, image, description) values(?,?,?,?)";

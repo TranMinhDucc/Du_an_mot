@@ -39,8 +39,8 @@
                 <input type="text" name="product_name" id="inputName" class="form-control" placeholder="Nhập tên sản phẩm" value="<?= $product['product_name'] ?>">
                 <input hidden type="text" name="catrgories_id" id="inputName" class="form-control" placeholder="Nhập tên sản phẩm" value="<?= isset($_POST['product_name']) ? $_POST['product_name'] : '' ?>">
               </div>
-              <?php if (isset($_SESSION['errors']['name'])) : ?>
-                <p class="text-danger"><?= $_SESSION['errors']['name'] ?></p>
+              <?php if (isset($_SESSION['errors']['product_name'])) : ?>
+                <p class="text-danger"><?= $_SESSION['errors']['product_name'] ?></p>
               <?php endif; ?>
 
               <!-- Danh mục -->
@@ -173,9 +173,6 @@
                     ?>>Ẩn</option>
                 </select>
               </div>
-              <?php if (isset($_SESSION['errors']['status'])) : ?>
-                <p class="text-danger"><?= $_SESSION['errors']['status'] ?></p>
-              <?php endif; ?>
 
               <!-- Slogun -->
               <div class="form-group">
