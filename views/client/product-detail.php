@@ -46,14 +46,9 @@
                         </p>
                         <div class="border_action">
                             <button class="btn_action decrease"><i class="fa-solid fa-circle-minus"></i></button>
-                            <!-- <span name='quantity' class="quantity">1</span> -->
                             <input type="number" name='quantity'>
                             <button class="btn_action increase"><i class="fa-solid fa-circle-plus"></i></button>
                         </div>
-                        <!-- <div class="tags">
-                            <label for=""> Total amount:</label>
-                            <span class="total_price sale-price-variants">1200</span>
-                        </div> -->
                         <div class="share">
                             <label for="">Share:</label>
                             <ul class="details-share-list">

@@ -1,229 +1,234 @@
 .container_cart {
-    margin-bottom: 50px;
+  margin-bottom: 50px;
 }
 
 .title_shopping h4 {
-    line-height: 0;
-    margin-top: 20px;
+  line-height: 0;
+  margin-top: 20px;
 }
 
 .information_cart {
-    width: 100%;
-    margin-left: 10px;
+  width: 100%;
+  margin-left: 10px;
 }
 
 .items_prd .border_action .btn_action {
-    border: none;
-    background-color: #f7f7fc;
+  border: none;
+  background-color: #f7f7fc;
 }
 
 .font-semibold {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .box_cart {
-    margin-top: 30px;
-    display: flex;
-    justify-content: space-between;
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .form_coupon {
-    border: 1px solid rgb(114, 114, 114);
-    display: flex;
-    justify-content: space-between;
-    border-radius: 7px;
-    border-radius: 7px; /* Góc bo tròn cho toàn bộ form */
-    overflow: hidden; /* Đảm bảo các phần tử con không tràn ra */
+  border: 1px solid rgb(114, 114, 114);
+  display: flex;
+  justify-content: space-between;
+  border-radius: 7px;
+  border-radius: 7px; /* Góc bo tròn cho toàn bộ form */
+  overflow: hidden; /* Đảm bảo các phần tử con không tràn ra */
 }
 
 .form_coupon input {
-    border: none;
-    padding: 10px;
-    outline: none;
-    font-family: "Saira Semi Condensed", sans-serif;
-    width: 100%;
-    background-color: #f3f4f6;
-    line-height: 1.5;
+  border: none;
+  padding: 10px;
+  outline: none;
+  font-family: "Saira Semi Condensed", sans-serif;
+  width: 100%;
+  background-color: #f3f4f6;
+  line-height: 1.5;
 }
 
 .form_coupon button {
-    color: white;
-    background-color: var(--main-color);
-    border: none;
-    width: 70px;
-    border-top-right-radius: 7px;
-    border-bottom-right-radius: 7px;
+  color: white;
+  background-color: var(--main-color);
+  border: none;
+  width: 70px;
+  border-top-right-radius: 7px;
+  border-bottom-right-radius: 7px;
 }
 
 .list_amount li {
-    margin: 10px 0;
+  margin: 10px 0;
 }
 
 .box_ifm h3 {
-    white-space: nowrap; /* Không xuống dòng */
-    overflow: hidden; /* Ẩn phần tràn ra ngoài */
-    text-overflow: ellipsis; /* Thêm dấu "..." */
-    max-width: 580px; /* Giới hạn chiều rộng, có thể thay đổi theo nhu cầu */
+  white-space: nowrap; /* Không xuống dòng */
+  overflow: hidden; /* Ẩn phần tràn ra ngoài */
+  text-overflow: ellipsis; /* Thêm dấu "..." */
+  max-width: 580px; /* Giới hạn chiều rộng, có thể thay đổi theo nhu cầu */
 }
 
 .cart_left ul,
 .cart_right {
-    box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
 .cart_right h3 {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 .items_prd {
-    padding: 20px;
-    width: 706px;
-    display: flex;
-    color: black;
+  padding: 20px;
+  width: 706px;
+  display: flex;
+  color: black;
 }
 
 .items_prd del {
-    color: #a0a3bd99;
+  color: #a0a3bd99;
 }
 .box_ifm .price {
-    font-weight: 600;
+  font-weight: 600;
 }
 
 .items_prd .border_action {
-    width: 100px;
-    background-color: #f7f7fc;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-radius: 5px;
+  width: 100px;
+  background-color: #f7f7fc;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 5px;
 }
 
 .btn_remove {
-    padding: 7px;
-    border-radius: 10px;
-    border: none;
-    background-color: #fff4f4;
-    color: #ed3c59;
+  padding: 7px;
+  border-radius: 10px;
+  border: none;
+  background-color: #fff4f4;
+  color: #ed3c59;
 }
 
 .btn_remove i {
-    font-size: 11px;
+  font-size: 11px;
 }
 
 .btn_remove:hover {
-    background-color: #ed3c59;
-    color: white;
-    transition: all 0.5s;
+  background-color: #ed3c59;
+  color: white;
+  transition: all 0.5s;
 }
 
 .items_prd .action {
-    width: 100%;
+  width: 100%;
 }
 
 .btn_action i {
-    font-size: 16px;
+  font-size: 16px;
 }
 
 .fz-20 {
-    font-size: 20px;
+  font-size: 20px;
 }
 
 .fz-16 {
-    font-size: 16px;
+  font-size: 16px;
 }
 
 .products_img {
-    border-radius: 5px;
-    height: 112px;
-    width: 116px;
+  border-radius: 5px;
+  height: 112px;
+  width: 116px;
 }
 
 .title_shopping {
-    margin-left: 20px;
+  margin-left: 20px;
 }
 
 .container_cart .btn_back_home {
-    height: 20px;
-    background-color: white;
-    border: none;
-    margin-top: 10px;
+  height: 20px;
+  background-color: white;
+  border: none;
+  margin-top: 10px;
 }
 
 .container_cart .btn_back_home i {
-    color: var(--main-color);
-    font-size: 20px;
+  color: var(--main-color);
+  font-size: 20px;
 }
 
 .container_cart button:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .container_cart .back {
-    height: 25px;
+  height: 25px;
 }
 
 /* s  */
 
 .btn_action {
-    border: none;
-    background-color: #f7f7fc;
-    font-size: 18px;
-    color: #14142b;
-    cursor: pointer;
+  border: none;
+  background-color: #f7f7fc;
+  font-size: 18px;
+  color: #14142b;
+  cursor: pointer;
 }
 
 .border_action span {
-    font-size: 20px;
-    font-weight: bold;
-    color: #14142b;
+  font-size: 20px;
+  font-weight: bold;
+  color: #14142b;
 }
 
 .next_checkout {
-    background-color: var(--main-color);
-    color: white;
-    padding: 10px;
-    border-radius: 10px;
+  background-color: var(--main-color);
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
 }
 
 .text-right {
-    padding: 20px 0;
-    display: flex;
-    float: inline-end;
+  padding: 20px 0;
+  display: flex;
+  float: inline-end;
 }
 
 /* cart_right ===================================== */
-
+.carts_right {
+  width: 356px;
+  height: 425px;
+  padding: 20px;
+  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
 .cart_right {
-    width: 356px;
-    height: 280px;
-    padding: 20px;
+  width: 356px;
+  height: 280px;
+  padding: 20px;
 }
 .box_btn_carts {
-    width: 100%;
-    justify-content: space-between;
+  width: 100%;
+  justify-content: space-between;
 }
 
 .back_Cart {
-    background-color: #f7f7fc;
-    color: black;
+  background-color: #f7f7fc;
+  color: black;
 }
 
-.box_cart .input_carts{
-    padding: 10px;
-    font-family: "Saira Semi Condensed", sans-serif;
-    border-radius: 8px;
-    border: 1px solid #eaeaea;
-    width: 100%;
-} 
+.box_cart .input_carts {
+  padding: 10px;
+  font-family: "Saira Semi Condensed", sans-serif;
+  border-radius: 8px;
+  border: 1px solid #eaeaea;
+  width: 100%;
+}
 
 .label_Cart {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 .label_Cart textarea {
-    width: 100%;
-    padding: 10px;
-    font-family: "Saira Semi Condensed", sans-serif;
-    border-radius: 8px;
-    border: 1px solid #eaeaea;
+  width: 100%;
+  padding: 10px;
+  font-family: "Saira Semi Condensed", sans-serif;
+  border-radius: 8px;
+  border: 1px solid #eaeaea;
 }

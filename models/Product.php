@@ -9,6 +9,14 @@ class product extends connect
         $stmt->execute();
         return $stmt->fetchAll();
     }
+
+    public function topPrdViewCount(){
+        $sql = "SELECT * FROM products ORDER BY view_count DESC";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
     public function getAllVariant()
     {
         $sql = "SELECT * FROM variant_weights";
@@ -186,6 +194,13 @@ class product extends connect
         $stmt = $this->connect()->prepare($sql);
         return $stmt->execute([$_GET['id']]);
     }
+
+    function viewCount($slug){
+        $sql = 'UPDATE products SET view_count = view_count + 1 WHERE slug = ?';
+        $stmt = $this->connect()->prepare($sql);
+        return $stmt->execute([$slug]);
+    }
+
     public function getProductBySlug($slug)
     {
         $sql = 'SELECT

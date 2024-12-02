@@ -45,6 +45,7 @@ require_once '../controllers/client/HomeController.php';
 require_once '../controllers/client/AuthController.php';
 require_once '../controllers/client/ProfileController.php';
 require_once '../controllers/client/CartController.php';
+require_once '../controllers/client/OrderController.php';
 require_once '../controllers/client/LienHeController.php';
 $action = isset($_GET['act']) ? $_GET['act'] : 'client';
 $categoryAdmin = new CategoryController();
@@ -57,6 +58,7 @@ $profile = new ProfileController();
 $dashboard = new DashboardController();
 $setting = new SettingController();
 $cart = new CartController();
+$order = new OrderController();
 $lienhe = new AdminLienHeController();
 //========================== CLIENT
 $auth = new authController();
@@ -152,7 +154,7 @@ switch ($action) {
         break;
         // ======================== USER ===========================
     case 'profile';
-        include '../views/client/user/dashboard.php';
+        $profile->dashboard();
         break;
     case 'update-profile';
         $profile->updateProfile();
@@ -176,7 +178,10 @@ switch ($action) {
         $cart->delete();
         break;
     case 'checkout';
-        include '../views/client/checkout/checkout.php';
+        $order->index();
+        break;
+    case 'order';
+        $order->checkout();
         break;
     case 'userLienHe':
         $lienHeController->formLienHe();
