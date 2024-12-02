@@ -193,6 +193,10 @@ th, td {
     color: #007fe3;
 }
 
+.delivered{
+    color: #01b359;
+}
+
 .unpaid {
     color: #fb4e4c;
     background-color: #ffe8e8;

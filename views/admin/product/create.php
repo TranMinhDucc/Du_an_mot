@@ -36,12 +36,18 @@
               <!-- Tên sản phẩm -->
               <div class="form-group">
                 <label for="inputName">Tên sản phẩm</label>
-                <input type="text" name="name" id="inputName" class="form-control" placeholder="Nhập tên sản phẩm" value="<?= isset($_POST['name']) ? $_POST['name'] : '' ?>">
+                <input type="text" onkeyup="ChangeToSlug();" name="product_name" id="name" class="form-control" placeholder="Nhập tên sản phẩm" value="<?= isset($_POST['name']) ? $_POST['name'] : '' ?>">
                 <input hidden type="text" name="catrgories_id" id="inputName" class="form-control" placeholder="Nhập tên sản phẩm" value="<?= isset($_POST['name']) ? $_POST['name'] : '' ?>">
               </div>
-              <?php if (isset($_SESSION['errors']['name'])) : ?>
-                <p class="text-danger"><?= $_SESSION['errors']['name'] ?></p>
+              <?php if (isset($_SESSION['errors']['product_name'])) : ?>
+                <p class="text-danger"><?= $_SESSION['errors']['product_name'] ?></p>
               <?php endif; ?>
+
+              <!-- Slug -->
+              <div class="form-group">
+                <label for="inputName">Đường dẫn</label>
+                <input type="text" name="slug" id="slug" class="form-control" placeholder="Nhập tên sản phẩm" value="<?= isset($_POST['slug']) ? $_POST['slug'] : '' ?>">
+              </div>
 
               <!-- Danh mục -->
               <div class="form-group">
@@ -171,16 +177,6 @@
               <?php if (isset($_SESSION['errors']['status'])) : ?>
                 <p class="text-danger"><?= $_SESSION['errors']['status'] ?></p>
               <?php endif; ?>
-
-              <!-- Slogun -->
-              <div class="form-group">
-                <label for="inputName">Slogun</label>
-                <input type="text" name="slug" id="inputName" class="form-control" placeholder="Nhập tên sản phẩm" value="<?= isset($_POST['slug']) ? $_POST['slug'] : '' ?>">
-              </div>
-              <?php if (isset($_SESSION['errors']['slug'])) : ?>
-                <p class="text-danger"><?= $_SESSION['errors']['slug'] ?></p>
-              <?php endif; ?>
-
 
               <!-- Mô tả sản phẩm -->
               <div class="form-group">

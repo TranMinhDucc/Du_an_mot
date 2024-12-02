@@ -93,7 +93,7 @@
                             <span class="arrow"><i class="fa-solid fa-chevron-down"></i></span>
                         </button>
                         <ul class="list_nav" id="listNav">
-                            <?php foreach ($categories as $cate): ?>
+                            <?php foreach ($categoriesHome as $cate): ?>
 
                                 <li class="category_item">
                                     <button class="category_menu">
@@ -107,8 +107,14 @@
                     <nav class="nav_items">
                         <a href="?act=client" class="a_none capitalize">Trang chủ</a>
                         <a href="?act=products" class="a_none capitalize">Sản Phẩm</a>
-                        <a href="#!" class="a_none capitalize">Daily Deals</a>
                         <a href="?act=userLienHe" class="a_none capitalize">Liên Hệ</a>
+                        <?php
+                        if(isset($_SESSION['user']['role_id'])) {
+
+                            echo ($_SESSION['user']['role_id'] == 3) ? '<a href="?act=admin" class="a_none capitalize">Admin Panel</a>' : '';
+                        }
+                        ?>
+
                     </nav>
                 </div>
                 <div class="item_right">

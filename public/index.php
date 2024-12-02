@@ -1,5 +1,38 @@
 <?php
 session_start();
+// Danh sách các hành động không yêu cầu đăng nhập
+$allowed_routes = ['client', 'login', 'register', 'products', 'product-detail'];
+
+
+// Danh sách các hành động phải là admin mới vào được
+$admin_routes = [
+    'admin', 'product', 'product-create', 'product-store', 'product-edit', 
+    'product-update', 'product-variant-delete', 'product-delete', 'category',
+    'category-create', 'category-edit', 'category-delete', 'users', 
+    'user-create', 'create', 'user-edit', 'setting', 'coupon', 'coupon-create', 
+    'coupon-edit', 'coupon-update', 'coupon-delete', 'lienhe', 'chitietlienhe', 
+    'sualienhe', 'xoalienhe', 'formsualienhe'
+];
+// Lấy hành động hiện tại từ URL
+$action = isset($_GET['act']) ? $_GET['act'] : 'client';
+
+// Kiểm tra nếu chưa đăng nhập và truy cập hành động yêu cầu quyền
+if (!isset($_SESSION['user']) && !in_array($action, $allowed_routes)) {
+    $_SESSION['error'] = 'Vui lòng đăng nhập để sử dụng chức năng';
+    header('Location: index.php?act=login');
+    exit;
+}
+
+// Kiểm tra quyền hạn nếu cần (ví dụ admin)
+if (in_array($action, $admin_routes)) {
+    if (!isset($_SESSION['user']) || (int)$_SESSION['user']['role_id'] != 3) {
+        $_SESSION['error'] = 'Bạn không có quyền truy cập chức năng này.';
+        header('Location: index.php?act=client'); // Chuyển hướng đến trang client
+        exit;
+    }
+}
+
+
 require_once '../controllers/admin/CategoryController.php';
 require_once '../controllers/admin/ProductController.php';
 require_once '../controllers/admin/AdminLienHeController.php';
@@ -132,7 +165,7 @@ switch ($action) {
         break;
         // ======================== USER ===========================
     case 'profile';
-        include '../views/client/user/dashboard.php';
+        $profile->dashboard();
         break;
     case 'update-profile';
         $profile->updateProfile();

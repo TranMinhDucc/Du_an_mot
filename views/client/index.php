@@ -25,7 +25,7 @@
                 </div>
             </div>
             <div class="swiper-wrapper">
-                <?php foreach ($categories as $cate): ?>
+                <?php foreach ($categoriesHome as $cate): ?>
                     <a href="">
                         <div class="box_swiper">
                             <div class="box_img_categories">
@@ -63,7 +63,7 @@
                 </div>
             </div>
             <div class="popular_items">
-                <?php foreach ($products as $pro) : ?>
+                <?php foreach ($productsHome as $pro) : ?>
                     <div class="flex_popular">
                         <div class="box_popular">
                             <div class="item_img">
@@ -138,56 +138,7 @@
             </div>
         </section>
         <!-- /* ==========================  ========================== */ -->
-        <section class="categories_section">
-            <div class="f_categories">
-                <div class="container_home">
-                    <h2>Special Offers</h2>
-                </div>
-                <div class="view_item">
-                    <p>View All</p>
-                </div>
-            </div>
-            <div class="popular_items">
-                <div class="flex_popular">
-                    <div class="box_popular">
-                        <div class="item_img">
-                            <img src="<?= $pro['product_image'] ?>" alt="" class="img_home_prd image text-center">
-                            <button class="heart-button"><i class="fa-regular fa-heart"></i></button>
-                            <button class="bag-button"><i class="fa-solid fa-bag-shopping"></i>Add</button>
-                        </div>
-                        <div class="content_popular">
-                            <div>
-                                <p class="name_popular">Watermelon Medium 4kg +</p>
-                            </div>
-                            <div>
-                                <p class="price">Price</p>
-                                <h4 class="number_price">$120.00</h4>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="box_popular">
-                        <div class="item_img">
-                            <img src="<?= 'client/assets/images/' ?>home/prd_01.jpg" alt=""
-                                class="img_home_prd image text-center">
-                            <button class="heart-button"><i class="fa-regular fa-heart"></i></button>
-                            <button class="bag-button"><i class="fa-solid fa-bag-shopping"></i>Add</button>
-                        </div>
-                        <div class="content_popular">
-                            <div>
-                                <p class="name_popular">turkish large family size red apple 12+ piece (kg)</p>
-                            </div>
-                            <div>
-                                <p class="price">Price</p>
-                                <div class="nav_items">
-                                    <h4 class="number_price">$120.00</h4>
-                                    <h4 class="number_price del_price">$120.00</h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+
         <hr class="h2r hr">
         <!-- /* ==========================  ========================== */ -->
         <section>

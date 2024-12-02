@@ -213,7 +213,7 @@ body {
 }
 
 .item_left {
-    width: 558px;
+    gap: 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;

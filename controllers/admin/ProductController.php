@@ -22,11 +22,15 @@ class  ProductController extends Product
 
     public function store()
     {
+        $checkProductName = $this->checkProductName($_POST['product_name']);
         if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_products'])) {
 
             $errors = [];
             if (empty($_POST['product_name'])) {
                 $errors['product_name'] = 'Vui lòng nhập tên sản phẩm';
+            }
+            if ($checkProductName) {
+                $errors['product_name'] = 'Tên sản phẩm đã tồn tại';
             }
             if (empty($_POST['product_status'])) {
                 $errors['product_status'] = 'Vui lòng chọn trạng thái';

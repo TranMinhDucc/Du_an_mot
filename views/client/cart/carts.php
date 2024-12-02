@@ -1,4 +1,14 @@
-<?php include '../views/client/layout/header.php'; ?>
+<?php
+// if (!isset($_SESSION['user'])) {
+//     // Nếu đang truy cập một trang yêu cầu đăng nhập, chuyển hướng đến trang đăng nhập
+//     if (!in_array($_GET['act'] ?? 'carts', ['client', 'login', 'register'])) {
+//         $_SESSION['error'] = 'Vui lòng đăng nhập để sử dụng chức năng';
+//         header('Location: index.php?act=login');
+//         exit;
+//     }
+// }
+include '../views/client/layout/header.php'; ?>
+
 
 <link rel="stylesheet" href="client/assets/css/carts.css">
 <link rel="stylesheet" href="client/assets/css/style.css">
