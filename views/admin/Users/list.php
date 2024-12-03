@@ -37,6 +37,7 @@
                                     <tr>
                                         <th>ID</th>
                                         <th>Họ và tên</th>
+                                        <th>Giới tính</th>
 
                                         <th>Địa chỉ</th>
                                         <th>Email</th>
@@ -52,6 +53,18 @@
                                             <td><?= $value['id'] ?></td>
                                             <td><?= $value['name'] ?></td>
 
+                                            <td>
+                                                <?php
+                                                if($value['gender'] == 'male'){
+                                                    echo 'Nam';
+                                                }else if($value['gender'] == 'female'){
+                                                    echo 'Nữ';
+                                                }else if($value['gender'] == 'others'){
+                                                    echo 'Khác';
+                                                }else{
+                                                    echo 'Chưa cập nhật giới tính';
+                                                }?>
+                                            </td>
                                             <td><?= isset($value['address']) && $value['address'] !== ''  ? $value['address'] : "Chưa cập nhật địa chỉ" ?></td>
                                             <td><i class="fa-solid fa-envelope"></i> <?= $value['email'] ?></td>
                                             <td><?= isset($value['phone']) && $value['phone'] !== ''  ? $value['phone'] : "Chưa cập nhật số điện thoại" ?></td>
