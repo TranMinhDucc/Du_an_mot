@@ -1,0 +1,153 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.container {
+  width: 1120px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.row {
+  margin-bottom: 10px;
+}
+.hidden {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.wish_list {
+  height: 50px;
+
+  margin-bottom: 20px;
+}
+.wish_list h1 {
+  margin-bottom: 10px;
+}
+.wish_list .hr {
+  height: 1px;
+
+  background-color: #ebebeb;
+}
+.popular_items {
+  display: grid; /* Kích hoạt Grid Layout */
+
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(200px, 1fr)
+  ); /* Định nghĩa cột động */
+  gap: 20px; /* Khoảng cách giữa các phần tử */
+  width: 1120px; /* Đặt chiều rộng tổng */
+  margin: 0 auto; /* Canh giữa nếu cần */
+}
+
+.box_popular {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 6px 0 10px 0;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+  border-radius: 10px;
+  background-color: #fff;
+  width: 205px;
+  height: 335px;
+  transition: all 0.5s;
+}
+.box_popular:hover {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.img_home_prd {
+  border-radius: 6px;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s ease; /* Hiệu ứng phóng to mượt mà */
+  object-fit: cover; /* Giữ tỷ lệ ảnh và cắt phần thừa */
+}
+.box_popular:hover .img_home_prd {
+  transform: scale(1.01); /* Phóng to ảnh lên 10% khi hover */
+}
+.content_popular {
+  display: flex;
+  padding: 0 6px;
+  flex-direction: column;
+  align-items: flex-start; /* Căn về phía trên bên trái */
+  justify-content: flex-start; /* Căn lên trên */
+  height: 100%;
+  width: 100%;
+}
+.content_popular div {
+  height: 55px;
+}
+
+.content_popular .price {
+  font-size: 14px;
+  margin-top: 0;
+  align-self: flex-start; /* Giữ cho thẻ h3 nằm phía trên bên trái */
+}
+
+.number_price {
+  color: var(--main-color);
+}
+.del_price {
+  text-decoration: line-through;
+  font-size: 17px;
+  color: rgb(183, 183, 183);
+}
+.item_img {
+  margin-bottom: 10px;
+  position: relative;
+  display: inline-block; /* Giữ kích thước của ảnh */
+}
+
+.img_home_prd {
+  width: 190px;
+  height: 200px;
+}
+
+.heart-button,
+.bag-button {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.8); /* Màu nền nhạt cho nút */
+  border: none;
+  padding: 8px;
+  border-radius: 50%; /* Nút tròn */
+  cursor: pointer;
+  font-size: 16px; /* Điều chỉnh kích thước icon */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.heart-button {
+  top: 5px;
+  right: 10px;
+  color: red;
+}
+
+.bag-button {
+  display: flex;
+  width: 75px;
+  bottom: 13px;
+  right: 10px;
+  color: white;
+  justify-content: space-around;
+  border-radius: 20px;
+  background-color: var(--main-color);
+}
+.button {
+  margin: 20px 0px 20px 0px;
+}
+.button {
+  width: 1120px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.btn-primary {
+  width: 70px;
+  border-radius: 5px;
+  height: 30px;
+  color: white;
+  cursor: pointer;
+  background-color: #6c757d;
+}
