@@ -44,15 +44,15 @@
                         <ul class="list_address">
                             <li>
                                 <i class="fa-solid fa-location-dot"></i>
-                                <span>House:25, Road:05, Block:A, Dhaka.</span>
+                                <span><?= $GLOBALS['settingHome']["7"]["content"] ?></span>
                             </li>
                             <li>
                                 <i class="fa-solid fa-envelope"></i>
-                                <span>contact@example.com</span>
+                                <span><?= $GLOBALS['settingHome']["6"]["content"] ?></span>
                             </li>
                             <li>
                                 <i class="fa-solid fa-phone"></i>
-                                <span>01256398745</span>
+                                <span><?= $GLOBALS['settingHome']["4"]["content"] ?></span>
                             </li>
                         </ul>
                     </div>
