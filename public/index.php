@@ -64,6 +64,7 @@ require_once '../controllers/admin/DashboardController.php';
 require_once '../controllers/admin/SettingController.php';
 require_once '../controllers/admin/CouponAdminController.php';
 require_once '../controllers/admin/OrdersControler.php';
+require_once '../models/Category.php';
 require_once '../models/Settings.php';
 require_once '../controllers/client/HomeController.php';
 require_once '../controllers/client/AuthController.php';
@@ -82,7 +83,10 @@ $orderAdmin = new OrdersControler();
 
 $profile = new ProfileController();
 $dashboard = new DashboardController();
+$settingHome = new Settings();
+$GLOBALS['settingHome'] = $settingHome->getAllSetting();
 $setting = new SettingController();
+// var_dump($setting); die();
 $cart = new CartController();
 $order = new OrderController();
 $lienhe = new AdminLienHeController();
@@ -90,6 +94,11 @@ $wishList = new WishlistController();
 //========================== CLIENT
 $auth = new authController();
 $home = new HomeController();
+$category = new Category();
+$GLOBALS['listCate'] = $category->listCategoryHome();
+// echo '<pre>';
+// print_r($GLOBALS['setting']);
+// echo '<pre>';
 $lienHeController = new LienHeController();
 switch ($action) {
     case 'admin':
@@ -141,7 +150,7 @@ switch ($action) {
         $userAdmin->updateUser();
         break;
     case 'setting':
-        $setting->index();
+        $setting->indexSettings();
         break;
     case 'coupon':
         $couponAdmin->index();

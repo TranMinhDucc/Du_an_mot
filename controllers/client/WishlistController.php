@@ -12,7 +12,7 @@ class WishlistController extends wishlist
     {
         $checkWishlist = $this->checkWishlist();
         if ($checkWishlist) {
-            $_SESSION['success'] = "Sản phẩm này đã có trong danh sách yêu thích";
+            $_SESSION['error'] = "Sản phẩm này đã có trong danh sách yêu thích";
             header('Location:' . $_SERVER['HTTP_REFERER']);
             exit();
         }

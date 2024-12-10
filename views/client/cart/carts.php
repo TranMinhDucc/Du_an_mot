@@ -124,7 +124,6 @@ include '../views/client/layout/header.php'; ?>
         </form>
     </main>
 </body>
-<<<<<<< HEAD
 <script>
     // Lấy tất cả các phần tử có class "border_action"
     document.querySelectorAll('.border_action').forEach(borderAction => {
@@ -153,7 +152,3 @@ include '../views/client/layout/header.php'; ?>
     });
 </script>
 <?php include '../views/client/layout/footer.php'; ?>
-=======
-<?php 
-include '../views/client/layout/footer.php'; ?>
->>>>>>> 8f854ea3c0d86fffeb3e2ed9115d3f2f37a24df9

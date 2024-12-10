@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="" />
-    <meta name="keywords" content="<?= $GLOBALS['settings']["1"]["content"] ?>">
+    <meta name="description" content="<?= $GLOBALS['settingHome']["5"]["content"] ?>" />
+    <meta name="keywords" content="<?= $GLOBALS['settingHome']["1"]["content"] ?>">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -20,7 +20,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
-    <title>Trang chủ</title>
+    <title><?= $GLOBALS['settingHome']["2"]["content"] ?></title>
 
 </head>
 
@@ -93,12 +93,10 @@
                             <span class="arrow"><i class="fa-solid fa-chevron-down"></i></span>
                         </button>
                         <ul class="list_nav" id="listNav">
-                            <?php foreach ($categoriesHome as $cate): ?>
-
+                            <?php foreach ($GLOBALS['listCate'] as $cate): ?>
                                 <li class="category_item">
                                     <button class="category_menu">
                                         <span class="capitalize"> <?= $cate['name'] ?></span>
-                                        <!-- <i class="fa-solid fa-chevron-right"></i> -->
                                     </button>
                                 </li>
                             <?php endforeach; ?>
@@ -111,7 +109,7 @@
                         <?php
                         if (isset($_SESSION['user']['role_id'])) {
 
-                            echo ($_SESSION['user']['role_id'] == 3) ? '<a href="?act=admin" class="a_none capitalize">Admin Panel</a>' : '';
+                            echo ($_SESSION['user']['role_id'] == 3) ? '<a href="?act=admin" class="a_none capitalize" style="color: red;">Admin Panel</a>' : '';
                         }
                         ?>
 
@@ -128,7 +126,7 @@
                         ?>
                         <div class="contact">
                             <i class="fa-solid fa-headphones-simple"></i>
-                            <span>01236589745</span>
+                            <span><?= $GLOBALS['settingHome']["4"]["content"] ?></span>
                         </div>
                     </div>
                 </div>
