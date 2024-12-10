@@ -45,7 +45,7 @@
                         <span class="capitalize">Vietnam</span>
                         <span class="arrow"><i class="fa-solid fa-chevron-down"></i></span>
                     </button>
-                    <a href="" class="box_favourite ">
+                    <a href="?act=wish-list" class="box_favourite ">
                         <div class="favourite"><i class="fa-regular fa-heart favourite" style="color: #ffffff;"></i>
                         </div>
                         <span class="capitalize">Yêu thích</span>
@@ -109,7 +109,7 @@
                         <a href="?act=products" class="a_none capitalize">Sản Phẩm</a>
                         <a href="?act=userLienHe" class="a_none capitalize">Liên Hệ</a>
                         <?php
-                        if(isset($_SESSION['user']['role_id'])) {
+                        if (isset($_SESSION['user']['role_id'])) {
 
                             echo ($_SESSION['user']['role_id'] == 3) ? '<a href="?act=admin" class="a_none capitalize">Admin Panel</a>' : '';
                         }

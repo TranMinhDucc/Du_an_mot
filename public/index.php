@@ -6,12 +6,35 @@ $allowed_routes = ['client', 'login', 'register', 'products', 'product-detail'];
 
 // Danh sách các hành động phải là admin mới vào được
 $admin_routes = [
-    'admin', 'product', 'product-create', 'product-store', 'product-edit', 
-    'product-update', 'product-variant-delete', 'product-delete', 'category',
-    'category-create', 'category-edit', 'category-delete', 'users', 
-    'user-create', 'create', 'user-edit', 'setting', 'coupon', 'coupon-create', 
-    'coupon-edit', 'coupon-update', 'coupon-delete', 'lienhe', 'chitietlienhe', 
-    'sualienhe', 'xoalienhe', 'formsualienhe', 'manager-orders', 'order-edit'
+    'admin',
+    'product',
+    'product-create',
+    'product-store',
+    'product-edit',
+    'product-update',
+    'product-variant-delete',
+    'product-delete',
+    'category',
+    'category-create',
+    'category-edit',
+    'category-delete',
+    'users',
+    'user-create',
+    'create',
+    'user-edit',
+    'setting',
+    'coupon',
+    'coupon-create',
+    'coupon-edit',
+    'coupon-update',
+    'coupon-delete',
+    'lienhe',
+    'chitietlienhe',
+    'sualienhe',
+    'xoalienhe',
+    'formsualienhe',
+    'manager-orders',
+    'order-edit'
 ];
 // Lấy hành động hiện tại từ URL
 $action = isset($_GET['act']) ? $_GET['act'] : 'client';
@@ -48,6 +71,7 @@ require_once '../controllers/client/ProfileController.php';
 require_once '../controllers/client/CartController.php';
 require_once '../controllers/client/OrderController.php';
 require_once '../controllers/client/LienHeController.php';
+require_once '../controllers/client/WishlistController.php';
 $action = isset($_GET['act']) ? $_GET['act'] : 'client';
 $categoryAdmin = new CategoryController();
 $userAdmin = new UserController();
@@ -62,6 +86,7 @@ $setting = new SettingController();
 $cart = new CartController();
 $order = new OrderController();
 $lienhe = new AdminLienHeController();
+$wishList = new WishlistController();
 //========================== CLIENT
 $auth = new authController();
 $home = new HomeController();
@@ -141,6 +166,14 @@ switch ($action) {
         break;
     case 'order-edit':
         $orderAdmin->updateOrder();
+        break;
+    case 'wish-list':
+        $wishList->index();
+        break;
+    case 'wish-add':
+        $wishList->add();
+        break;
+    case 'wish-delete':
         break;
 
         // ======================== CLIENT ===========================
