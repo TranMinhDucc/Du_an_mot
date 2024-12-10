@@ -284,6 +284,12 @@
                                         <p>Tất cả sản phẩm</p>
                                     </a>
                                 </li>
+                                <li class="nav-item">
+                                    <a href="index.php?act=manager-orders" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Đơn hàng</p>
+                                    </a>
+                                </li>
                             </ul>
                         </li>
                         <li class="nav-header">QUẢN LÝ</li>

@@ -7,7 +7,7 @@ class User extends connect
     public function register($name, $email, $password)
     {
         $hash_password = password_hash($password, PASSWORD_DEFAULT);
-        $sql = 'INSERT INTO users (name, email, password, role_id) VALUES (?, ?, ?, 4)';
+        $sql = 'INSERT INTO users (name, email, password, role_id,created_at, updated_at) VALUES (?, ?, ?, 4, now(), now())';
         $stmt = $this->connect()->prepare($sql);
         return $stmt->execute([$name, $email, $hash_password]);
     }
@@ -29,7 +29,7 @@ class User extends connect
 
     public function updateUser($name, $image, $address, $email, $phone, $gender)
     {
-        $sql = 'UPDATE users SET name=?, avatar=?, address=?, email=?, phone=?, gender=? WHERE id=?';
+        $sql = 'UPDATE users SET name=?, avatar=?, address=?, email=?, phone=?, gender=?, updated_at = CURRENT_TIMESTAMP WHERE id=?';
         $stmt = $this->connect()->prepare($sql);
         return $stmt->execute([$name, $image, $address, $email, $phone, $gender, $_SESSION['user']['id']]);
     }
@@ -70,6 +70,7 @@ class User extends connect
             LEFT JOIN orders ON order_detail.order_detail_id = orders.order_detail_id
             WHERE orders.user_id = ?
             GROUP BY order_detail.order_detail_id,  orders.user_id, order_detail.status
+            ORDER BY order_detail.created_at DESC
 
 
         ';

@@ -126,11 +126,18 @@
                             <div>
                                 <p class="name_popular"><?= $value['name'] ?></p>
                             </div>
-                            <div>
-                                <p class="price">Price</p>
-                                <div class="nav_items">
-                                    <h4 class="number_price"><?= $value['prices'] ?></h4>
-                                    <h4 class="number_price del_price"><?= $value['sale'] ?></h4>
+
+                            <div class="content_popular">
+                                <div>
+                                    <p class="name_popular"><?= $value['name'] ?></p>
+                                </div>
+                                <div>
+                                    <p class="price">Price</p>
+                                    <div class="nav_items">
+                                        <h4 class="number_price"><?= number_format($value['prices'] * 1000) ?></h4>
+                                        <h4 class="number_price del_price"><?= number_format($value['sale'] * 1000) ?></h4>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
