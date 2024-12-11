@@ -1,4 +1,4 @@
-<?php 
+<?php
 // if (!isset($_SESSION['user'])) {
 //     // Nếu đang truy cập một trang yêu cầu đăng nhập, chuyển hướng đến trang đăng nhập
 //     if (!in_array($_GET['act'] ?? 'checkout', ['client', 'login', 'register'])) {
@@ -41,12 +41,12 @@ include '../views/client/layout/header.php'; ?>
                                             <div class="label_Cart">
                                                 <label for="">Địa chỉ:</label> <br>
                                                 <input type="text" name="address" value="<?= $user['address'] ?>"
-                                                    class="input_carts"> <br>
+                                                    class="input_carts" required> <br>
                                             </div>
                                             <div class="label_Cart">
                                                 <label for="">Số điện thoại:</label> <br>
                                                 <input type="text" name="phone" value="<?= $user['phone'] ?>"
-                                                    class="input_carts"> <br>
+                                                    class="input_carts" required> <br>
                                             </div>
                                             <div class="label_Cart">
                                                 <label for="">Email:</label> <br>
@@ -117,7 +117,7 @@ include '../views/client/layout/header.php'; ?>
                                                 <span class="font-medium">
 
                                                     <input type="radio" name="shipping_id"
-                                                        value="<?= $ship['shipping_id'] ?>">
+                                                        value="<?= $ship['shipping_id'] ?>" checked>
                                                     <label for="flat_rate"><?= $ship['name'] ?>:
                                                         <span><?= number_format($ship['shipping_price'] * 1000) ?>đ</span></label><br>
                                                 </span>
