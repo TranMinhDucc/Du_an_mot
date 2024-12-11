@@ -1,7 +1,6 @@
 <?php include '../views/client/layout/header.php'; ?>
 <link rel="stylesheet" href="client/assets/css/home.css">
 
-<body>
 
     <div class="center home">
         <section class="hero_section">
@@ -56,7 +55,7 @@
         <section class="categories_section">
             <div class="f_categories">
                 <div class="container_home">
-                    <h2>Popular Items</h2>
+                    <h2>Các mặt hàng phổ biến</h2>
                 </div>
                 <div class="view_item">
                     <p>View All</p>
@@ -83,7 +82,7 @@
                                 </div>
                                 <div>
                                     <p class="price">Price</p>
-                                    <h4 class="number_price"><?= $pro['product_price'] ?></h4>
+                                    <h4 class="number_price"><?= number_format($pro['product_price'] * 1000) ?></h4>
                                 </div>
                             </div>
                         </div>
@@ -102,7 +101,8 @@
         <section class="categories_section">
             <div class="f_categories">
                 <div class="container_home">
-                    <h2>Trending Items</h2>
+                    <h2>Các mặt hàng thịnh hành
+                    </h2>
                 </div>
                 <div class="f_item_arrow">
                     <div><i class="fa-solid fa-angle-left"></i></div>
@@ -187,5 +187,4 @@
             </div>
         </section>
     </div>
-</body>
 <?php include '../views/client/layout/footer.php'; ?>

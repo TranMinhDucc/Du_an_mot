@@ -195,7 +195,8 @@ switch ($action) {
         $home->getProductDetail();
         break;
     case 'products':
-        include '../views/client/products.php';
+        $home->productALl();
+        // include '../views/client/products.php';
         break;
         // ======================== AUTH ===========================
 

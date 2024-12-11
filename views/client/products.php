@@ -42,60 +42,15 @@
 
         <!-- Product List -->
         <div class="product-list">
+        <?php foreach ($productsHome as $pro) : ?>
             <div class="product-card">
-                <img src="../public/images/product-detail/01.jpg" alt="" />
-                <h4>Watermelon Medium 4kg +</h4>
-                <p>Price: $120.00</p>
+                <img src="./images/product/<?= $pro['product_image'] ?>" alt="" />
+                <h4><?= $pro['product_name'] ?></h4>
+                <p>Price: <?= number_format($pro['product_price'] * 1000) ?></p>
                 <button>Add</button>
             </div>
-            <div class="product-card">
-                <img src="../public/images/product-detail/01.jpg" alt="" />
-                <h4>Apple Golden Delicious</h4>
-                <p>Price: $121.00</p>
-                <button>Add</button>
-            </div>
-            <div class="product-card">
-                <img src="../public/images/product-detail/01.jpg" alt="" />
-                <h4>Beef Premium Cube</h4>
-                <p>Price: $122.00</p>
-                <button>Add</button>
-            </div>
-            <div class="product-card">
-                <img src="../public/images/product-detail/01.jpg" alt="" />
-                <h4>Salmon Sea Large Fish</h4>
-                <p>Price: $150.00</p>
-                <button>Add</button>
-            </div>
-            <div class="product-card">
-                <img src="../public/images/product-detail/01.jpg" alt="" />
-                <h4>Salmon Sea Large Fish</h4>
-                <p>Price: $150.00</p>
-                <button>Add</button>
-            </div>
-            <div class="product-card">
-                <img src="../public/images/product-detail/01.jpg" alt="" />
-                <h4>Salmon Sea Large Fish</h4>
-                <p>Price: $150.00</p>
-                <button>Add</button>
-            </div>
-            <div class="product-card">
-                <img src="../public/images/product-detail/01.jpg" alt="" />
-                <h4>Salmon Sea Large Fish</h4>
-                <p>Price: $150.00</p>
-                <button>Add</button>
-            </div>
-            <div class="product-card">
-                <img src="../public/images/product-detail/01.jpg" alt="" />
-                <h4>Salmon Sea Large Fish</h4>
-                <p>Price: $150.00</p>
-                <button>Add</button>
-            </div>
-            <div class="product-card">
-                <img src="../public/images/product-detail/01.jpg" alt="" />
-                <h4>Salmon Sea Large Fish</h4>
-                <p>Price: $150.00</p>
-                <button>Add</button>
-            </div>
+            <?php endforeach ?>
+          
 
         </div>
     </div>
@@ -114,7 +69,7 @@
             </li>
             <li> <button class="paginate-buttons activity">1</button>
             </li>
-            <li> <button class=" paginate-buttons"">2</button>
+            <li> <button class=" paginate-buttons">2</button>
             </li>
             <li> <button class=" next-button">Next</button>
             </li>

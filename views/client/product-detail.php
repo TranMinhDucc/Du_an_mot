@@ -4,7 +4,6 @@
     rel="stylesheet" />
 <link rel="stylesheet" href="client/assets/css/product-detail.css">
 <link rel="stylesheet" href="client/assets/css/style.css">
-<main>
     <div class="product-page">
         <div class="page">
             <div class="product-images">
@@ -352,7 +351,6 @@
             </div>
         </div>
     </section>
-</main>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
 

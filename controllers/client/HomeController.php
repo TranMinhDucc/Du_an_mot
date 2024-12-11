@@ -33,7 +33,7 @@ class HomeController
             $products = $this->products->listProduct();
             $productsHome = $this->products->listProductHome();
             $topProductView = $this->products->topPrdViewCount();
-            $GLOBALS['settings'] = $this->setting->getAllSetting();
+            // $GLOBALS['settings'] = $this->setting->getAllSetting();
             // var_dump($setting); die();
             include '../views/client/index.php';
         }
@@ -47,5 +47,10 @@ class HomeController
         // Hàm reset để lấy ra phần tử đầu tiên
         $productDetail = reset($productDetail);
         include '../views/client/product-detail.php';
+    }
+
+    public function productALl(){
+        $productsHome = $this->products->listProductHome();
+        include '../views/client/products.php';
     }
 }
