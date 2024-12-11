@@ -5,7 +5,7 @@ class Orders extends connect
 {
     public function listOrder()
     {
-        $sql = "SELECT * FROM order_detail";
+        $sql = "SELECT * FROM order_detail ORDER BY order_detail_id  DESC";
         $stmt = $this->connect()->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll();
