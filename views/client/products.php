@@ -42,15 +42,17 @@
 
         <!-- Product List -->
         <div class="product-list">
-        <?php foreach ($productsHome as $pro) : ?>
-            <div class="product-card">
-                <img src="./images/product/<?= $pro['product_image'] ?>" alt="" />
-                <h4><?= $pro['product_name'] ?></h4>
-                <p>Price: <?= number_format($pro['product_price'] * 1000) ?></p>
-                <button>Add</button>
-            </div>
+            <?php foreach ($productsHome as $pro) : ?>
+                <div class="product-card">
+                    <img src="./images/product/<?= $pro['product_image'] ?>" alt="" />
+                    <h4><?= $pro['product_name'] ?></h4>
+                    <p>Price: <?= number_format($pro['product_price'] * 1000) ?></p>
+                    <a href="?act=product-detail&slug=<?= $pro['product_slug'] ?>">
+                        <button>
+                            Add</button></a>
+                </div>
             <?php endforeach ?>
-          
+
 
         </div>
     </div>
