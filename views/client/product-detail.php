@@ -46,7 +46,7 @@
                         </p>
                         <div class="border_action">
                             <button class="btn_action decrease"><i class="fa-solid fa-circle-minus"></i></button>
-                            <!-- <span name='quantity' class="quantity">1</span> -->
+
                             <input type="number" name='quantity'>
                             <a class="btn_action increase"><i class="fa-solid fa-circle-plus"></i></a>
 
@@ -420,7 +420,8 @@
         quantityInput.value = quantityInput.value || 1;
 
         // Xử lý khi bấm nút -
-        decreaseButton.addEventListener('click', () => {
+        decreaseButton.addEventListener('click', (event) => {
+            event.preventDefault(); // Ngăn chặn hành động mặc định
             let currentValue = parseInt(quantityInput.value) || 1;
             if (currentValue > 1) {
                 quantityInput.value = currentValue - 1;

@@ -58,11 +58,10 @@ include '../views/client/layout/header.php'; ?>
                                                 </div>
                                                 <div class="flex">
                                                     <div>
-                                                        <a href="" class="btn_remove capitalize"">
                                                         <button type=" submit" name="update_cart"
-                                                            class="btn_remove capitalize">
+                                                            class="btn_removes capitalize">
                                                             <i class="fa-regular fa-trash-can"></i> Update
-                                                            </button></a>
+                                                        </button>
                                                     </div>
                                                     <div>
                                                         <a href="?act=delete-cart&cart_id=<?= $cart['cart_id'] ?>"
@@ -85,9 +84,11 @@ include '../views/client/layout/header.php'; ?>
                     </div>
 
                     <div class="cart_right">
-                        <form action="" class="form_coupon ">
-                            <input type="text" name="coupon_code" placeholder="Nhập mã giảm giá">
-                            <button type="submit" name="apply_coupon">Áp dụng</button>
+                        <form action="" class="form_coupon">
+                            <div class="form_coupon">
+                                <input type="text" name="coupon_code" placeholder="Nhập mã giảm giá">
+                                <button type="submit" name="apply_coupon">Áp dụng</button>
+                            </div>
                         </form>
                         <div>
                             <h3>Tóm tắt đơn hàng</h3>
@@ -104,18 +105,20 @@ include '../views/client/layout/header.php'; ?>
                             <li class="flex">
                                 <span class="capitalize">Giảm giá</span>
                                 <span class="font-medium">
-                                    <?= 
-                                    isset($_SESSION['totalCoupon']) ? 
-                                    number_format($_SESSION['totalCoupon'] * 1000) 
-                                    : 0;
-                                    ?>đ</span>
+                                    -<?=
+                                        isset($_SESSION['totalCoupon']) ?
+                                            number_format($_SESSION['totalCoupon'] * 1000)
+                                            : 0;
+                                        ?>đ</span>
                             </li>
                         </ul>
                         <div class="flex">
                             <p class="capitalize font-semibold">Tổng cộng</p>
-                            <p class="font-semibold"><?= 
+                            <p class="font-semibold">
+                                <?=
                                 isset($_SESSION['totalCoupon']) ?
-                            number_format(($sum - $_SESSION['totalCoupon']) * 1000) : number_format($sum * 1000) ?>đ</p>
+                                    number_format(($sum - $_SESSION['totalCoupon']) * 1000) : number_format($sum * 1000) ?>đ
+                            </p>
                         </div>
                     </div>
                 </div>
