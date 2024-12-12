@@ -25,7 +25,7 @@
                             <span
                                 class="old-price price"><?= number_format($productDetail['product_price'] * 1000, 0, ',', '.')  ?>đ</span>
                             <span
-                                class="new-price sale-price-variants"><?= number_format($productDetail['product_sale_price'], 0, ',', '.') ?></span><span
+                                class="new-price sale-price-variants"><?= number_format($productDetail['product_price'] * 1000, 0, ',', '.') ?></span><span
                                 class="new-price">đ</span>
                             <input type="hidden" name="variant_id" id="variant_id">
                             <span class="per-kilo">/Per Kilo</span>
@@ -383,7 +383,8 @@
                         priceElement.textContent = matchedVariant.price;
                     }
                     if (salePriceElement) {
-                        salePriceElement.textContent = matchedVariant.variant_sale_price;
+                        salePriceElement.textContent = (matchedVariant.variant_sale_price * 1000).toLocaleString('de-DE');
+
                     }
                     if (variantIdElement) {
                         variantIdElement.value = matchedVariant.product_variant_id;
