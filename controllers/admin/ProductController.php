@@ -91,7 +91,7 @@ class  ProductController extends Product
                     $product_id = $this->getLastInsert();
                     if (isset($_POST['variant_weight'])) {
                         foreach ($_POST['variant_weight'] as $key => $weight) {
-                            $addProductVariant = $this->addProductVariant($_POST['variant_prices'][$key], $_POST['variant_sale'][$key], $_POST['variant_weight'][$key], $product_id);
+                            $addProductVariant = $this->addProductVariant($_POST['variant_prices'][$key], $_POST['variant_sale'][$key], $_POST['varia nt_weight'][$key], $product_id);
                         }
                     }
                 }
